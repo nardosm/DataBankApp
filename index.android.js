@@ -48,9 +48,8 @@ export default class DataBankApp extends Component {
               justifyContent: 'center',
               alignItems: 'center',
               width: 200,
-              height: 100}}
+              height: 120}}
             >
-
             <Icon name={item.illustration} size={50} color="#FB5260" /> 
             <Text style={sty.overlayText}>{item.title}</Text>
           
@@ -64,11 +63,11 @@ export default class DataBankApp extends Component {
 
 
       switch(this.state.slider1ActiveSlide){
-        case 0:
+        case 2:
           return(
             <View style={{flex:3}}>
-            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-              <LineChart  data= {[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]}/>
+            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  POPULATION GROWTH BY YEAR</Text>
+              <LineChart  data= {[11,24,15,56,54,35,32,23,13,25,16,15,20,2,7,15]}/>
             </View>
           )
           break;
@@ -77,7 +76,7 @@ export default class DataBankApp extends Component {
           return(
             <View style={{flex:3}}>
             <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-              <LineChart  data= {[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]}/>
+              <LineChart  data= {[11,24,15,56,54,35,32,23,13,25,16,15,20,2,7,15]}/>
             </View>
           )
           break;
@@ -86,7 +85,7 @@ export default class DataBankApp extends Component {
           return(
             <View style={{flex:3}}>
               <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-              <LineChart  data= {[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]}/>
+               <LineChart  data= {[11,24,15,56,54,35,32,23,13,25,16,15,20,2,7,15]}/>
             </View>
           )
           break;
@@ -95,7 +94,7 @@ export default class DataBankApp extends Component {
           return(
             <View style={{flex:3}}>
               <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-              <LineChart  data= {[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]}/>
+               <LineChart  data= {[11,24,15,56,54,35,32,23,13,25,16,15,20,2,7,15]}/>
             </View>
           )
           break;
@@ -247,8 +246,8 @@ export default class DataBankApp extends Component {
                   itemWidth={200}
                   hasParallaxImages={true}
                   firstItem={SLIDER_1_FIRST_ITEM}
-                  inactiveSlideScale={0.7}
-                  inactiveSlideOpacity={0.4}
+                  inactiveSlideScale={0.5}
+                  inactiveSlideOpacity={1}
                   enableMomentum={false}
                   scrollEndDragDebounceValue={Platform.OS === 'ios' ? 0 : 100}
                   onSnapToItem={(index) => this.setState({ slider1ActiveSlide: index }) }
@@ -264,30 +263,37 @@ export default class DataBankApp extends Component {
  render() {
 
     return (
-       <ScrollView style={sty.container}>
-              <LinearGradient colors={['#ff512f', '#dd2476']} style={styles.linearGradient}>
+
+    <View style={sty.container}>
+       <ScrollView >
+              <LinearGradient colors={['#fe5f5f', '#fe5f5f']} style={styles.linearGradient}>
             
-                  <Text style={sty.country}>
-                      INDIA
-                  </Text>
+                  <View style={sty.toolbar}>
+                    <Text style={sty.toolbarButton}><Icon name="ios-arrow-back-outline" size={35} color="#ffffff" /></Text>
+                    <Text style={sty.country}>Ireland</Text>
+                    <Text style={sty.toolbarButton}></Text>
+                </View>
 
                   <Text style={sty.subtext}>
-                      POPULATION
                   </Text>
 
                   <Text style={sty.subtextNumber}>
                       1.324B
                   </Text>
+             
 
-                  <Text style={sty.subtextSmallText}>
-                     GDP: $1,709.39                 |                  GNI: $1,680        
-                  </Text>
+                  <View style={{height:80}}>
+
+                  </View>
+               
               </LinearGradient>
 
-              <View style={{flex:1}}>
+              <View style={{ position:'absolute',zIndex:1, top:120}}>
 
-          
-               <View style={styles.container}>
+            
+               
+
+           
                 <ScrollView
                   style={styles.scrollview}
                   indicatorStyle={'white'}
@@ -296,23 +302,25 @@ export default class DataBankApp extends Component {
                 >
 
                     {this.example1}
+
                   
                 </ScrollView>
-            </View>        
+               
           </View>
 
-
+            <View style={{flex:1, marginTop: 70}}>
+         
               {this._renderLineChart()}
-            
+             {/*
               {this._renderDoughnutChart()}
 
               {this._renderBarChart()}
            
               {this._renderPolarArea()}
-
-
+            */}
+            </View>
             </ScrollView>
-
+</View>
 
     );
   }
@@ -320,11 +328,36 @@ export default class DataBankApp extends Component {
 
 const sty = StyleSheet.create({
 
+
+  toolbar:{
+
+        marginTop:20,
+        flexDirection:'row'    //Step 1
+    },
+    toolbarButton:{
+      marginTop:5,
+        width: 50,            //Step 2
+        color:'#fff',
+        textAlign:'center'
+    },
+    toolbarTitle:{
+        color:'#fff',
+        textAlign:'center',
+        fontWeight:'bold',
+        flex:1                //Step 3
+    },
+
+
+
+
+
+
   linearGradient: {
-    flex: 1,
+    zIndex:0,
     paddingLeft: 15,
     paddingRight: 15,
-    borderRadius: 5
+    borderRadius: 5,
+
   },
   columnedItems:{
      flexDirection:'row',
@@ -333,27 +366,28 @@ const sty = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#ffffff',
 
   },
   country: {
-    marginTop:20,
-    fontSize: 25,
+    fontSize: 30,
     textAlign: 'center',
     color:'#ffffff',
     fontFamily:'Montserrat-Regular',
-    letterSpacing: 2,
+    flex:1 
 
   },
 
   chartTitle: {
-    marginTop:20,
-    marginBottom:10,
+    marginTop:26,
+    marginBottom:0,
     marginLeft:10,
     fontSize: 15,
-    color:'#292929',
-    fontFamily:'Montserrat-Regular',
+    color:'#696969',
+    fontFamily:'Montserrat-SemiBold',
     letterSpacing: 2,
+    textAlign: 'center',
+
 
   },
 
@@ -367,8 +401,7 @@ const sty = StyleSheet.create({
 
   },
   subtext: {
-    marginTop:40,
-    marginBottom:10,
+    marginTop:10,
     fontSize: 14,
     textAlign: 'center',
     color:'#ffffff',
@@ -377,10 +410,10 @@ const sty = StyleSheet.create({
   },
   subtextNumber: {
     marginTop:-10,
-    fontSize: 35,
+    fontSize: 15,
     textAlign: 'center',
     color:'#ffffff',
-    fontFamily:'Montserrat-Light',
+    fontFamily:'Montserrat-Bold',
     letterSpacing: 2,
   },
   subtextSmallText: {
