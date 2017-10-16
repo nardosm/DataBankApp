@@ -1,434 +1,149 @@
-
-import React, { Component } from 'react';
-import { View, ScrollView, Text, StatusBar, Platform, Dimensions,AppRegistry, Image, StyleSheet, WebView} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import Carousel, { Pagination } from 'react-native-snap-carousel';
-import SliderEntry from './src/components/SliderEntry';
-import { ENTRIES1 } from './src/static/entries';
-import styles from './src/styles/index.style';
-import LineChart from './src/linechart';
-import DoghnutChart from './src/doughnut';
-import BarChart from './src/barchart';
-import PolarArea from './src/polararea';
-import Icon from 'react-native-vector-icons/Ionicons';
+import React, { Component } from 'react'
+import { StyleSheet, View, TouchableOpacity, Image, Text, Button, Dimensions, Animated, AppRegistry } from 'react-native'
+import Interactable from 'react-native-interactable'
+import Menu from './Menu'
+import CountryDetail from './country_detail'
+import colors from './styles/colors'
 
 
-const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
-function wp (percentage) {
-    const value = (percentage * viewportWidth) / 100;
-    return Math.round(value);
-}
+const Screen = Dimensions.get('window')
+const SideMenuWidth = 300
+const RemainingWidth = Screen.width - SideMenuWidth
 
-const slideHeight = viewportHeight * 0.4;
-const slideWidth = wp(75);
-const itemHorizontalMargin = wp(2);
-
-const SLIDER_1_FIRST_ITEM = 2;
-const sliderWidth = viewportWidth;
-const itemWidth = slideWidth + itemHorizontalMargin * 2;
-
-
-export default class DataBankApp extends Component {
-
-
-    constructor (props) {
-        super(props);
+export default class SideMenu extends Component {
+    constructor(props) {
+        super(props)
         this.state = {
-            slider1ActiveSlide: SLIDER_1_FIRST_ITEM,
-            slider1Ref: null
-        };
+            deltaX: new Animated.Value(-SideMenuWidth),
+            menuOpened: false,
+            countryData: [{}],
+            countryDetail: [{}],
+            currencies:[{}],
+            languages:[{}]
+        }
+        this.deltaX = new Animated.Value(0)
     }
 
-    _renderItem ({item, index}) {
+
+
+
+    componentDidMount() {
+      this.fetchCountryData();
+      this.fetchCountryDetail();
+    }
+
+
+
+    fetchCountryData() {
+      fetch("https://restcountries.eu/rest/v2/alpha/ET")
+        .then((response) =>
+          response.json())
+        .then((responseData) => {
+          console.log(responseData)
+          this.setState({
+            countryData: responseData,
+            currencies: responseData.currencies,
+            languages: responseData.languages
+          });
+        })
+        .done();
+      }
+
+      fetchCountryDetail() {
+      fetch(`https://kgsearch.googleapis.com/v1/entities:search?&types=Country&types=AdministrativeArea&query=India&key=AIzaSyCc1M0yZWtVzPt2R_sbRWklEHDpqTDj0hc&limit=1&indent=True`)
+        .then((response) =>
+          response.json())
+        .then((responseData) => {
+          console.log(responseData)
+          this.setState({
+            countryDetail: responseData.itemListElement[0].result.detailedDescription,
+          });
+        })
+        .done();
+      }
+
+
+
+
+    render() {
         return (
-            <View
-              style={{flex: 1,
-              backgroundColor:'#ffffff',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: 200,
-              height: 120}}
-            >
-            <Icon name={item.illustration} size={50} color="#FB5260" /> 
-            <Text style={sty.overlayText}>{item.title}</Text>
-          
-            </View>
-        );
-    }
-
-
-    _renderLineChart(){
-      
-
-
-      switch(this.state.slider1ActiveSlide){
-        case 2:
-          return(
-            <View style={{flex:3}}>
-            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  POPULATION GROWTH BY YEAR</Text>
-              <LineChart  data= {[11,24,15,56,54,35,32,23,13,25,16,15,20,2,7,15]}/>
-            </View>
-          )
-          break;
-
-        case 1:
-          return(
-            <View style={{flex:3}}>
-            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-              <LineChart  data= {[11,24,15,56,54,35,32,23,13,25,16,15,20,2,7,15]}/>
-            </View>
-          )
-          break;
-
-        case 3:
-          return(
-            <View style={{flex:3}}>
-              <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-               <LineChart  data= {[11,24,15,56,54,35,32,23,13,25,16,15,20,2,7,15]}/>
-            </View>
-          )
-          break;
-
-        case 5:
-          return(
-            <View style={{flex:3}}>
-              <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-               <LineChart  data= {[11,24,15,56,54,35,32,23,13,25,16,15,20,2,7,15]}/>
-            </View>
-          )
-          break;
-
-      }
-    }
-
-    _renderDoughnutChart(){
-      switch(this.state.slider1ActiveSlide ){
-         
-        case 0:
-           return(
-              <View style={{flex:3}}>
-              <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-                <DoghnutChart />
-             </View>
-          )
-          break;
-
-
-        case 2:
-           return(
-              <View style={{flex:3}}>
-              <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-                <DoghnutChart />
-             </View>
-          )
-          break;
-
-          case 4:
-           return(
-              <View style={{flex:3}}>
-              <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-                <DoghnutChart />
-             </View>
-          )
-          break;
-
-          case 6:
-           return(
-              <View style={{flex:3}}>
-              <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-                <DoghnutChart />
-             </View>
-          )
-          break;
-      }
-    }
-
-    _renderBarChart(){
-      switch(this.state.slider1ActiveSlide){
-          
-        
-        case 0:
-          return(
-            <View style={{flex:3}}>
-            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-              <BarChart />
-            </View>
-          )
-          break;
-
-        case 1:
-          return(
-            <View style={{flex:3}}>
-            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-              <BarChart />
-            </View>
-          )
-          break;
-
-        case 3:
-          return(
-            <View style={{flex:3}}>
-            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-              <BarChart />
-            </View>
-          )
-          break;
-
-        case 5:
-          return(
-            <View style={{flex:3}}>
-            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-              <BarChart />
-            </View>
-          )
-          break;
-      }
-    }
-
-
-    _renderPolarArea(){
-      switch(this.state.slider1ActiveSlide){
-         
-        case 0:
-          return(
-              <View style={{flex:3}}>
-              <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-               <PolarArea />
-              </View>
-          )
-          break;
-
-
-         case 2:
-          return(
-              <View style={{flex:3}}>
-              <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-               <PolarArea />
-              </View>
-          )
-          break;
-          
-          case 4:
-          return(
-              <View style={{flex:3}}>
-              <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-               <PolarArea />
-              </View>
-          )
-          break;
-
-          case 6:
-          return(
-              <View style={{flex:3}}>
-              <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Population Growth by Year</Text>
-               <PolarArea />
-              </View>
-          )
-          break;
-      }
-    }
-
-     
-    
-
-
-    get example1 () {
-        const { slider1ActiveSlide, slider1Ref } = this.state;
-
-        return (
-            <View>
-                <Carousel
-                  ref={(c) => { if (!this.state.slider1Ref) { this.setState({ slider1Ref: c }); } }}
-                  data={ENTRIES1}
-                  renderItem={this._renderItem}
-                  sliderWidth={sliderWidth}
-                  itemWidth={200}
-                  hasParallaxImages={true}
-                  firstItem={SLIDER_1_FIRST_ITEM}
-                  inactiveSlideScale={0.5}
-                  inactiveSlideOpacity={1}
-                  enableMomentum={false}
-                  scrollEndDragDebounceValue={Platform.OS === 'ios' ? 0 : 100}
-                  onSnapToItem={(index) => this.setState({ slider1ActiveSlide: index }) }
-                />
-                
-            </View>
-        );
-    }
-
-
- 
-
- render() {
-
-    return (
-
-    <View style={sty.container}>
-       <ScrollView >
-              <LinearGradient colors={['#fe5f5f', '#fe5f5f']} style={styles.linearGradient}>
-            
-                  <View style={sty.toolbar}>
-                    <Text style={sty.toolbarButton}><Icon name="ios-arrow-back-outline" size={35} color="#ffffff" /></Text>
-                    <Text style={sty.country}>Ireland</Text>
-                    <Text style={sty.toolbarButton}></Text>
-                </View>
-
-                  <Text style={sty.subtext}>
-                  </Text>
-
-                  <Text style={sty.subtextNumber}>
-                      1.324B
-                  </Text>
-             
-
-                  <View style={{height:80}}>
-
-                  </View>
-               
-              </LinearGradient>
-
-              <View style={{ position:'absolute',zIndex:1, top:120}}>
-
-            
-               
-
-           
-                <ScrollView
-                  style={styles.scrollview}
-                  indicatorStyle={'white'}
-                  scrollEventThrottle={200}
-                  directionalLockEnabled={true}
+            <View style={styles.container}>
+                <Menu  countryName={this.state.countryData.name}/>
+                <Interactable.View
+                    style={{ flex: 1}}
+                    ref='menuInstance'
+                    horizontalOnly={true}
+                    snapPoints={[{x: 0, damping: 0.6}, {x: SideMenuWidth, damping: 0.6}] }
+                    boundaries={{right: SideMenuWidth}}
+                    initialPosition={{x: 0}}
+                    animatedValueX={this.deltaX}
+                    onSnap={ this.onStopInteraction.bind(this) }
                 >
-
-                    {this.example1}
-
-                  
-                </ScrollView>
-               
-          </View>
-
-            <View style={{flex:1, marginTop: 70}}>
-         
-              {this._renderLineChart()}
-             {/*
-              {this._renderDoughnutChart()}
-
-              {this._renderBarChart()}
-           
-              {this._renderPolarArea()}
-            */}
+                    <CountryDetail countryData = {this.state}/>
+                </Interactable.View>
             </View>
-            </ScrollView>
-</View>
+        )
+    }
 
-    );
-  }
+    onStopInteraction(event, check) {
+        let menuOpened = true
+        if(event.nativeEvent.index == 0) {
+            menuOpened = false
+        }
+        this.setState((preState, props) => {
+            return { menuOpened }
+        })
+    }
+
+    onMenuPress = () => {
+        const menuOpened = !this.state.menuOpened
+        if(menuOpened) {
+            this.refs['menuInstance'].snapTo({index: 1})
+        } else {
+            this.refs['menuInstance'].snapTo({index: 0})
+        }
+    }
 }
 
-const sty = StyleSheet.create({
-
-
-  toolbar:{
-
-        marginTop:20,
-        flexDirection:'row'    //Step 1
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'stretch',
+        backgroundColor: colors.bgMain,
     },
-    toolbarButton:{
-      marginTop:5,
-        width: 50,            //Step 2
-        color:'#fff',
-        textAlign:'center'
-    },
-    toolbarTitle:{
-        color:'#fff',
-        textAlign:'center',
-        fontWeight:'bold',
-        flex:1                //Step 3
+    demoScreen: {
+        backgroundColor: colors.bgMainRed
     },
 
+    header: {
+        height: 60,
+        paddingLeft: 20,
+        flexDirection: 'row',
+        backgroundColor: 'red',
+        alignItems: 'center',
+        zIndex: 1001
+    },
+    body: {
+        flex: 1,
+        zIndex: 1000,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#000000'
+    },
+    menuIcon: {
+        width: 30,
+        height: 30
+    },
+    headerTitle: {
+        marginLeft: 30,
+        color: 'white',
+        fontSize: 20
+    },
+    content: {
+        fontSize: 18
+    }
+})
 
-
-
-
-
-  linearGradient: {
-    zIndex:0,
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 5,
-
-  },
-  columnedItems:{
-     flexDirection:'row',
-     justifyContent: 'space-between',
-
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#ffffff',
-
-  },
-  country: {
-    fontSize: 30,
-    textAlign: 'center',
-    color:'#ffffff',
-    fontFamily:'Montserrat-Regular',
-    flex:1 
-
-  },
-
-  chartTitle: {
-    marginTop:26,
-    marginBottom:0,
-    marginLeft:10,
-    fontSize: 15,
-    color:'#696969',
-    fontFamily:'Montserrat-SemiBold',
-    letterSpacing: 2,
-    textAlign: 'center',
-
-
-  },
-
-  overlayText: {
-    fontSize: 15,
-    textAlign: 'center',
-    color:'#FB5260',
-    fontFamily:'Montserrat-Bold',
-    letterSpacing: 2,
-
-
-  },
-  subtext: {
-    marginTop:10,
-    fontSize: 14,
-    textAlign: 'center',
-    color:'#ffffff',
-    fontFamily:'Montserrat-Light',
-    letterSpacing: 2,
-  },
-  subtextNumber: {
-    marginTop:-10,
-    fontSize: 15,
-    textAlign: 'center',
-    color:'#ffffff',
-    fontFamily:'Montserrat-Bold',
-    letterSpacing: 2,
-  },
-  subtextSmallText: {
-    marginTop:25,
-    marginBottom:10,
-    fontSize: 12,
-    textAlign: 'center',
-    color:'#ffffff',
-    fontFamily:'Montserrat-Light',
-    letterSpacing: 2,
-
-  },
-
-});
- 
-
-AppRegistry.registerComponent('DataBankApp', () => DataBankApp);
+AppRegistry.registerComponent('DataBankApp', () => SideMenu);
 

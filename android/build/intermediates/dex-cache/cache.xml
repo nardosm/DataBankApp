@@ -3,96 +3,6 @@
 
     <item
         is-multidex="false"
-        jar="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_4a493ad741c7a1c6286fc37e1d7481383f2ecd09.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nardos/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
-        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_3e1e5efe955774f9eddcc20fd3e3d578694930ee.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nardos/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1_5dded9f9105cc934c6384f26341dd7df83728119.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/DataBankApp/react-native-vector-icons/unspecified/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="f2cf527de8d0bd35d72088fafea02395ba4a9eec">
-        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/DataBankApp-react-native-vector-icons-unspecified_238d3d706434a0fbc7906feee60257cb75a18f4f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nardos/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_2d1eb5e00b85cf282f725a1db95f51ac01dabb97.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.3.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
-        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.3.0_d1f1c9640edbb5c9bf5ab34c3a619aed9d529b3b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.48.4/jars/libs/infer-annotations-4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
-        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_96c44b12e805740ea0f779777066cb11929ed9ad.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nardos/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_986f90928917bda67829369e8676a1663fee5148.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nardos/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
-        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.6.0_277bad84ebfd2bfa43b2323bed5070d0cd42b561.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
-        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_6758414ee8407bd4dd4506dc1fd44d9e1e80987f.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/nardos/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
         jumboMode="false"
         optimize="true"
@@ -117,6 +27,24 @@
         revision="26.0.1"
         sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
         <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.0.1_b095433e8e940c6a75c1bbd479472178036abd94.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_4a493ad741c7a1c6286fc37e1d7481383f2ecd09.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nardos/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_3e1e5efe955774f9eddcc20fd3e3d578694930ee.jar" />
     </item>
     <item
         is-multidex="false"
@@ -147,6 +75,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/nardos/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1_5dded9f9105cc934c6384f26341dd7df83728119.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.3.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -174,12 +111,66 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/DataBankApp/react-native-vector-icons/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="f2cf527de8d0bd35d72088fafea02395ba4a9eec">
+        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/DataBankApp-react-native-vector-icons-unspecified_238d3d706434a0fbc7906feee60257cb75a18f4f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nardos/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_2d1eb5e00b85cf282f725a1db95f51ac01dabb97.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/DataBankApp/react-native-interactable/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="bab06551b01ee5f100139aedecdc10039eac1be9">
+        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/DataBankApp-react-native-interactable-unspecified_8bfacff73615fe1273dbfe8b018dad45fa643eaa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
+        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.3.0_d1f1c9640edbb5c9bf5ab34c3a619aed9d529b3b.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.3.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.1"
         sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
         <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.3.0_d6d4f960ed80c69ced38bceb5fc733266e38c695.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.48.4/jars/libs/infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_96c44b12e805740ea0f779777066cb11929ed9ad.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nardos/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_986f90928917bda67829369e8676a1663fee5148.jar" />
     </item>
     <item
         is-multidex="false"
@@ -192,12 +183,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/nardos/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
+        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.6.0_277bad84ebfd2bfa43b2323bed5070d0cd42b561.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.48.4/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.1"
         sha1="56d3e81fee5f47a7a12ab65f4620f580c9c71d1e">
         <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.48.4_a5a2c9aad74988d80910dd4dc92982cb8885f66b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_6758414ee8407bd4dd4506dc1fd44d9e1e80987f.jar" />
     </item>
     <item
         is-multidex="false"

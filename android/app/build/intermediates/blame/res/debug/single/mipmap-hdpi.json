@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/nardos/Documents/DataBankApp/android/C:\\Users\\nardos\\Documents\\DataBankApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
+        "source": "/Users/nardos/Documents/DataBankApp/android/C:\\Users\\nardos\\Documents\\DataBankApp\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
         "merged": "/Users/nardos/Documents/DataBankApp/android/C:\\Users\\nmegersa\\Documents\\DataBankApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
         "source": "/Users/nardos/Documents/DataBankApp/android/C:\\Users\\nmegersa\\Documents\\DataBankApp\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
@@ -8,15 +12,11 @@
         "source": "/Users/nardos/Documents/DataBankApp/android/C:\\Users\\nardos\\Documents\\DataBankApp\\android\\C:\\Users\\nmegersa\\Documents\\DataBankApp\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/res/merged/debug/mipmap-hdpi/ic_launcher.png",
-        "source": "/Users/nardos/Documents/DataBankApp/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
-    },
-    {
         "merged": "/Users/nardos/Documents/DataBankApp/android/C:\\Users\\nardos\\Documents\\DataBankApp\\android\\C:\\Users\\nardos\\Documents\\DataBankApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
         "source": "/Users/nardos/Documents/DataBankApp/android/C:\\Users\\nardos\\Documents\\DataBankApp\\android\\C:\\Users\\nardos\\Documents\\DataBankApp\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "/Users/nardos/Documents/DataBankApp/android/C:\\Users\\nardos\\Documents\\DataBankApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
-        "source": "/Users/nardos/Documents/DataBankApp/android/C:\\Users\\nardos\\Documents\\DataBankApp\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "/Users/nardos/Documents/DataBankApp/android/app/build/intermediates/res/merged/debug/mipmap-hdpi/ic_launcher.png",
+        "source": "/Users/nardos/Documents/DataBankApp/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     }
 ]

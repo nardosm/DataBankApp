@@ -26,6 +26,7 @@ MERGED from [com.facebook.react:react-native:0.48.4] /Users/nardos/Documents/Dat
 		ADDED from /Users/nardos/Documents/DataBankApp/android/app/src/main/AndroidManifest.xml:7:22-75
 uses-sdk
 ADDED from /Users/nardos/Documents/DataBankApp/android/app/src/main/AndroidManifest.xml:9:5-11:41
+MERGED from [DataBankApp:react-native-interactable:unspecified] /Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/DataBankApp/react-native-interactable/unspecified/AndroidManifest.xml:7:5-9:41
 MERGED from [DataBankApp:react-native-vector-icons:unspecified] /Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/DataBankApp/react-native-vector-icons/unspecified/AndroidManifest.xml:7:5-9:41
 MERGED from [DataBankApp:react-native-linear-gradient:unspecified] /Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/DataBankApp/react-native-linear-gradient/unspecified/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.48.4] /Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.48.4/AndroidManifest.xml:7:5-9:41
@@ -49,6 +50,7 @@ MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/nardos/Documents/DataB
 		INJECTED from /Users/nardos/Documents/DataBankApp/android/app/src/main/AndroidManifest.xml
 application
 ADDED from /Users/nardos/Documents/DataBankApp/android/app/src/main/AndroidManifest.xml:13:5-30:19
+MERGED from [DataBankApp:react-native-interactable:unspecified] /Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/DataBankApp/react-native-interactable/unspecified/AndroidManifest.xml:13:5-16:19
 MERGED from [com.facebook.react:react-native:0.48.4] /Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.48.4/AndroidManifest.xml:13:5-20
 MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.0.1] /Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:22:5-20
@@ -88,6 +90,10 @@ activity#com.facebook.react.devsupport.DevSettingsActivity
 ADDED from /Users/nardos/Documents/DataBankApp/android/app/src/main/AndroidManifest.xml:29:7-84
 	android:name
 		ADDED from /Users/nardos/Documents/DataBankApp/android/app/src/main/AndroidManifest.xml:29:17-81
+uses-permission#android.permission.VIBRATE
+ADDED from [DataBankApp:react-native-interactable:unspecified] /Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/DataBankApp/react-native-interactable/unspecified/AndroidManifest.xml:11:5-66
+	android:name
+		ADDED from [DataBankApp:react-native-interactable:unspecified] /Users/nardos/Documents/DataBankApp/android/app/build/intermediates/exploded-aar/DataBankApp/react-native-interactable/unspecified/AndroidManifest.xml:11:22-63
 android:uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 IMPLIED from /Users/nardos/Documents/DataBankApp/android/app/src/main/AndroidManifest.xml:1:1-32:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 android:uses-permission#android.permission.READ_PHONE_STATE
