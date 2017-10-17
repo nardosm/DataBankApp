@@ -2,19 +2,32 @@
 import React, { Component } from 'react'; 
 import { WebView,AppRegistry, View, Text,StyleSheet } from 'react-native'; 
 import Modal from 'react-native-modalbox';
+import { StackNavigator } from 'react-navigation';
+import CountryMenu from './country_menu';
 
-export default class DoghnutChart extends Component { 
+export default class RenderMap extends Component { 
+
+  static navigationOptions = {
+    title: 'Chat with Lucy',
+    header: null
+  };
+
+
 
   constructor(props) {
         super(props)
         this.state = {
            selectedCountry: null,
+           selectedCountryCode: null,
         }
        
     }
     onMessage(data) {
+
+      data = data.split(',');
       this.setState({
-        selectedCountry:data
+        selectedCountry:data[0],
+        selectedCountryCode:data[1]
       },
       function () {
           this.refs.modal6.open()
@@ -26,6 +39,9 @@ export default class DoghnutChart extends Component {
 
 
   render() { 
+
+
+     const { navigate } = this.props.navigation;
 
    let htmlTest = `
              
@@ -96,8 +112,13 @@ export default class DoghnutChart extends Component {
         function onEachFeature(feature, layer){
           function onCountryClick(e){
             selectedCountry = e.target.feature.properties.NAME;
-            window.postMessage(selectedCountry);
+            selectedCountryCode = e.target.feature.properties.ISO2;
+            
+
+            var countryInfo = selectedCountry + ',' + selectedCountryCode;
+            window.postMessage(countryInfo);
            
+            
             
           };
           layer.on({
@@ -119,9 +140,9 @@ export default class DoghnutChart extends Component {
         style={{flex:1}} 
         onMessage={(event)=> this.onMessage(event.nativeEvent.data)}
       /> 
-     <Modal style={[styles.modal, styles.modal4]} position={"bottom"} ref={"modal6"} swipeArea={20}>
-          <Text>{this.state.selectedCountry}</Text>
-</Modal>
+        <Modal style={[styles.modal, styles.modal4]} position={"bottom"} ref={"modal6"} swipeArea={20}>
+          <Text  onPress={() => navigate('CountryDetail', { countryName: this.state.selectedCountry, countryCode:this.state.selectedCountryCode })} style={styles.countryText}>{this.state.selectedCountry}</Text>
+        </Modal>
       </View>
 
     ); 
@@ -140,12 +161,24 @@ const styles = StyleSheet.create({
 
   modal4: {
     height: 100
-},
+  },
+
+  countryText:{
+    fontSize:20
+  }
 
 
 });
 
 
-AppRegistry.registerComponent('DataBankApp', () => DoghnutChart);
+
+export const SimpleApp = StackNavigator({
+  Home: { screen: RenderMap },
+  CountryDetail: { screen: CountryMenu },
+});
+
+
+
+AppRegistry.registerComponent('DataBankApp', () => SimpleApp);
 
 

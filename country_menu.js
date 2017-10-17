@@ -11,7 +11,18 @@ const Screen = Dimensions.get('window')
 const SideMenuWidth = 300
 const RemainingWidth = Screen.width - SideMenuWidth
 
-export default class SideMenu extends Component {
+
+export default class CountryMenu extends Component {
+
+
+static navigationOptions = {
+    title: 'Country Detail',
+    header: null
+  };
+
+
+
+
     constructor(props) {
         super(props)
         this.state = {
@@ -29,6 +40,9 @@ export default class SideMenu extends Component {
 
 
     componentDidMount() {
+
+
+
       this.fetchCountryData();
       this.fetchCountryDetail();
     }
@@ -36,7 +50,11 @@ export default class SideMenu extends Component {
 
 
     fetchCountryData() {
-      fetch("https://restcountries.eu/rest/v2/alpha/ET")
+
+         const { params } = this.props.navigation.state;
+         //console.log("Country Name isssss:",params.countryName); 
+
+      fetch("https://restcountries.eu/rest/v2/alpha/" + params.countryCode)
         .then((response) =>
           response.json())
         .then((responseData) => {
@@ -52,7 +70,9 @@ export default class SideMenu extends Component {
 
       fetchCountryDetail() {
 
-      fetch("https://kgsearch.googleapis.com/v1/entities:search?&types=Country&types=AdministrativeArea&query="+ "Ethiopia" +"&key=AIzaSyCc1M0yZWtVzPt2R_sbRWklEHDpqTDj0hc&limit=1&indent=True")
+        const { params } = this.props.navigation.state;
+
+      fetch("https://kgsearch.googleapis.com/v1/entities:search?&types=Country&types=AdministrativeArea&query="+ params.countryName +"&key=AIzaSyCc1M0yZWtVzPt2R_sbRWklEHDpqTDj0hc&limit=1&indent=True")
         .then((response) =>
           response.json())
         .then((responseData) => {
@@ -68,6 +88,10 @@ export default class SideMenu extends Component {
 
 
     render() {
+
+          
+          
+
         return (
             <View style={styles.container}>
                 <Menu  countryName={this.state.countryData.name} countryCode={this.state.countryData.alpha2Code} />
@@ -146,5 +170,5 @@ const styles = StyleSheet.create({
     }
 })
 
-AppRegistry.registerComponent('DataBankApp', () => SideMenu);
+
 
