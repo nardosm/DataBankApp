@@ -1,8 +1,28 @@
 
 import React, { Component } from 'react'; 
-import { WebView,AppRegistry } from 'react-native'; 
+import { WebView,AppRegistry, View, Text,StyleSheet } from 'react-native'; 
+import Modal from 'react-native-modalbox';
 
 export default class DoghnutChart extends Component { 
+
+  constructor(props) {
+        super(props)
+        this.state = {
+           selectedCountry: null,
+        }
+       
+    }
+    onMessage(data) {
+      this.setState({
+        selectedCountry:data
+      },
+      function () {
+          this.refs.modal6.open()
+          console.log(this.state.selectedCountry);
+      })
+
+    }
+
 
 
   render() { 
@@ -28,8 +48,7 @@ export default class DoghnutChart extends Component {
 #mapid {
   width: 100%;
   height: 100%;
-    margin-left: auto;
-    margin-right: auto;
+  
 }
 </style>
     <div id="mapid"></div>
@@ -38,10 +57,6 @@ export default class DoghnutChart extends Component {
 </html>
 
   `
-
-
-
-
  let jsCode = `
        
   mapBounds = L.latLngBounds(-33, 77);
@@ -50,7 +65,7 @@ export default class DoghnutChart extends Component {
     {
       center: [8.7832,34.5085],
        zoomControl:false,
-      maxZoom : 7,
+      maxZoom : 10,
       minZoom: 2,
       zoom: 3,
       attributionControl: false,
@@ -75,13 +90,15 @@ export default class DoghnutChart extends Component {
 
 
          geo.eachLayer(function (layer){
-          layer.bindPopup("<b>"+layer.feature.properties.NAME +"</b>" );
+         
         });
 
         function onEachFeature(feature, layer){
           function onCountryClick(e){
             selectedCountry = e.target.feature.properties.NAME;
-            console.log(selectedCountry);
+            window.postMessage(selectedCountry);
+           
+            
           };
           layer.on({
             click : onCountryClick
@@ -92,17 +109,41 @@ export default class DoghnutChart extends Component {
       });
     `;
 
-
-
+    //console.log(this.state.selectedCountry);
     return ( 
+     <View style={{flex:1}}>
       <WebView 
-      source={{html: htmlTest}} 
-       injectedJavaScript={jsCode}
-      javaScriptEnabledAndroid={true}
-      style={{marginTop: 10, height:220}} /> ); 
+        source={{html: htmlTest}} 
+        injectedJavaScript={jsCode}
+        javaScriptEnabledAndroid={true}
+        style={{flex:1}} 
+        onMessage={(event)=> this.onMessage(event.nativeEvent.data)}
+      /> 
+     <Modal style={[styles.modal, styles.modal4]} position={"bottom"} ref={"modal6"} swipeArea={20}>
+          <Text>{this.state.selectedCountry}</Text>
+</Modal>
+      </View>
+
+    ); 
   } 
 }
 
+
+
+
+const styles = StyleSheet.create({
+
+  modal: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  modal4: {
+    height: 100
+},
+
+
+});
 
 
 AppRegistry.registerComponent('DataBankApp', () => DoghnutChart);
