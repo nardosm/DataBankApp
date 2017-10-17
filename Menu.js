@@ -8,7 +8,7 @@ import Text from './styles/Text'
 import Icon from 'react-native-vector-icons/Ionicons'
 import colors from './styles/colors'
 import Modal from 'react-native-modalbox';
-import RenderChart from './indexCopy';
+import RenderAgricultureChart from './renderChart';
 
 
 
@@ -33,27 +33,27 @@ class Menu extends Component {
 
                   <View style={{ paddingHorizontal: 30 }}>
                         { this._renderHeader() }
-                      <TouchableOpacity style={styles.menu} onPress={() => this.refs.modal1.open()}>
+                      <TouchableOpacity style={styles.menu} onPress={() => this.refs.agriculture.open()}>
                             <Icon name='ios-nutrition-outline' size={40} color="#FB5260" /> 
                             <Text style={styles.menuText} type='h4White'>Agriculture</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity style={ styles.menu }>
+                      <TouchableOpacity style={ styles.menu} onPress={() => this.refs.economy.open()}>
                             <Icon name='ios-cash-outline' size={40} color="#FB5260" /> 
                             <Text style={styles.menuText} type='h4White'>Economy</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity style={ styles.menu }>
+                      <TouchableOpacity style={ styles.menu} onPress={() => this.refs.education.open()}>
                             <Icon name='ios-school-outline' size={40} color="#FB5260" /> 
                             <Text style={styles.menuText} type='h4White'>Education</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity style={ styles.menu }>
+                      <TouchableOpacity style={ styles.menu} onPress={() => this.refs.environment.open()}>
                             <Icon name='ios-leaf-outline' size={40} color="#FB5260" /> 
                             <Text style={styles.menuText} type='h4White'>Environment</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity style={ styles.menu }>
+                      <TouchableOpacity style={ styles.menu} onPress={() => this.refs.health.open()}>
                             <Icon name='ios-pulse-outline' size={40} color="#FB5260" /> 
                             <Text style={styles.menuText} type='h4White'>Health</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity style={ styles.menu }>
+                      <TouchableOpacity style={ styles.menu} onPress={() => this.refs.infrastructure.open()}>
                             <Icon name='ios-plane-outline' size={40} color="#FB5260" /> 
                             <Text style={styles.menuText} type='h4White'>Infrastructure</Text>
                       </TouchableOpacity>
@@ -62,13 +62,73 @@ class Menu extends Component {
 
                    <Modal
                     style={[styles.modal, styles.modal1]}
-                    ref={"modal1"}
+                    ref={"agriculture"}
                     swipeToClose={this.state.swipeToClose}
                     onClosed={this.onClose}
                     onOpened={this.onOpen}
                     coverScreen={this.state.coverScreen}
                     onClosingState={this.onClosingState}>
-                     <RenderChart countryName = {this.props.countryName} />
+                     <RenderAgricultureChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Agriculture"/>
+                  </Modal>
+
+
+                  <Modal
+                    style={[styles.modal, styles.modal1]}
+                    ref={"economy"}
+                    swipeToClose={this.state.swipeToClose}
+                    onClosed={this.onClose}
+                    onOpened={this.onOpen}
+                    coverScreen={this.state.coverScreen}
+                    onClosingState={this.onClosingState}>
+                     <RenderAgricultureChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Economy"/>
+                  </Modal>
+
+
+                  <Modal
+                    style={[styles.modal, styles.modal1]}
+                    ref={"education"}
+                    swipeToClose={this.state.swipeToClose}
+                    onClosed={this.onClose}
+                    onOpened={this.onOpen}
+                    coverScreen={this.state.coverScreen}
+                    onClosingState={this.onClosingState}>
+                     <RenderAgricultureChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Education"/>
+                  </Modal>
+
+
+                  <Modal
+                    style={[styles.modal, styles.modal1]}
+                    ref={"environment"}
+                    swipeToClose={this.state.swipeToClose}
+                    onClosed={this.onClose}
+                    onOpened={this.onOpen}
+                    coverScreen={this.state.coverScreen}
+                    onClosingState={this.onClosingState}>
+                     <RenderAgricultureChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Environment"/>
+                  </Modal>
+
+
+                  <Modal
+                    style={[styles.modal, styles.modal1]}
+                    ref={"health"}
+                    swipeToClose={this.state.swipeToClose}
+                    onClosed={this.onClose}
+                    onOpened={this.onOpen}
+                    coverScreen={this.state.coverScreen}
+                    onClosingState={this.onClosingState}>
+                     <RenderAgricultureChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Health"/>
+                  </Modal>
+
+
+                  <Modal
+                    style={[styles.modal, styles.modal1]}
+                    ref={"infrastructure"}
+                    swipeToClose={this.state.swipeToClose}
+                    onClosed={this.onClose}
+                    onOpened={this.onOpen}
+                    coverScreen={this.state.coverScreen}
+                    onClosingState={this.onClosingState}>
+                     <RenderAgricultureChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Infrastructure"/>
                   </Modal>
 
 

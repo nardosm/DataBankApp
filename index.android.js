@@ -1,149 +1,110 @@
-import React, { Component } from 'react'
-import { StyleSheet, View, TouchableOpacity, Image, Text, Button, Dimensions, Animated, AppRegistry } from 'react-native'
-import Interactable from 'react-native-interactable'
-import Menu from './Menu'
-import CountryDetail from './country_detail'
-import colors from './styles/colors'
+
+import React, { Component } from 'react'; 
+import { WebView,AppRegistry } from 'react-native'; 
+
+export default class DoghnutChart extends Component { 
+
+
+  render() { 
+
+   let htmlTest = `
+             
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+  integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+  integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+  crossorigin=""></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+
+  </head>
+  <body>
+
+<style type="text/css">
+#mapid {
+  width: 100%;
+  height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+    <div id="mapid"></div>
+  </body>
+
+</html>
+
+  `
 
 
 
-const Screen = Dimensions.get('window')
-const SideMenuWidth = 300
-const RemainingWidth = Screen.width - SideMenuWidth
 
-export default class SideMenu extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            deltaX: new Animated.Value(-SideMenuWidth),
-            menuOpened: false,
-            countryData: [{}],
-            countryDetail: [{}],
-            currencies:[{}],
-            languages:[{}]
+ let jsCode = `
+       
+  mapBounds = L.latLngBounds(-33, 77);
+  var selectedCountry;
+  var map = new L.Map('mapid',
+    {
+      center: [8.7832,34.5085],
+       zoomControl:false,
+      maxZoom : 7,
+      minZoom: 2,
+      zoom: 3,
+      attributionControl: false,
+      noWrap : true
+    }).addLayer(
+      new L.TileLayer("https://{s}.tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey=8f24cebb48b04166bbecd9ce32d8acb9")
+    );
+
+    d3.json("https://raw.githubusercontent.com/nardosm/DataBankApp/master/convertedCoords.json", function (json){
+        function style(feature) {
+          return {
+            fillColor: "white",
+            fill : true,
+            weight: 0.0,
+            opacity: 0.0,
+          };
         }
-        this.deltaX = new Animated.Value(0)
-    }
+        var geo = L.geoJson(json, {
+          onEachFeature : onEachFeature,
+          style : style
+        }).addTo(map);
 
 
+         geo.eachLayer(function (layer){
+          layer.bindPopup("<b>"+layer.feature.properties.NAME +"</b>" );
+        });
 
-
-    componentDidMount() {
-      this.fetchCountryData();
-      this.fetchCountryDetail();
-    }
-
-
-
-    fetchCountryData() {
-      fetch("https://restcountries.eu/rest/v2/alpha/ET")
-        .then((response) =>
-          response.json())
-        .then((responseData) => {
-          console.log(responseData)
-          this.setState({
-            countryData: responseData,
-            currencies: responseData.currencies,
-            languages: responseData.languages
+        function onEachFeature(feature, layer){
+          function onCountryClick(e){
+            selectedCountry = e.target.feature.properties.NAME;
+            console.log(selectedCountry);
+          };
+          layer.on({
+            click : onCountryClick
           });
-        })
-        .done();
-      }
+        };
+      
 
-      fetchCountryDetail() {
-      fetch(`https://kgsearch.googleapis.com/v1/entities:search?&types=Country&types=AdministrativeArea&query=India&key=AIzaSyCc1M0yZWtVzPt2R_sbRWklEHDpqTDj0hc&limit=1&indent=True`)
-        .then((response) =>
-          response.json())
-        .then((responseData) => {
-          console.log(responseData)
-          this.setState({
-            countryDetail: responseData.itemListElement[0].result.detailedDescription,
-          });
-        })
-        .done();
-      }
+      });
+    `;
 
 
 
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <Menu  countryName={this.state.countryData.name}/>
-                <Interactable.View
-                    style={{ flex: 1}}
-                    ref='menuInstance'
-                    horizontalOnly={true}
-                    snapPoints={[{x: 0, damping: 0.6}, {x: SideMenuWidth, damping: 0.6}] }
-                    boundaries={{right: SideMenuWidth}}
-                    initialPosition={{x: 0}}
-                    animatedValueX={this.deltaX}
-                    onSnap={ this.onStopInteraction.bind(this) }
-                >
-                    <CountryDetail countryData = {this.state}/>
-                </Interactable.View>
-            </View>
-        )
-    }
-
-    onStopInteraction(event, check) {
-        let menuOpened = true
-        if(event.nativeEvent.index == 0) {
-            menuOpened = false
-        }
-        this.setState((preState, props) => {
-            return { menuOpened }
-        })
-    }
-
-    onMenuPress = () => {
-        const menuOpened = !this.state.menuOpened
-        if(menuOpened) {
-            this.refs['menuInstance'].snapTo({index: 1})
-        } else {
-            this.refs['menuInstance'].snapTo({index: 0})
-        }
-    }
+    return ( 
+      <WebView 
+      source={{html: htmlTest}} 
+       injectedJavaScript={jsCode}
+      javaScriptEnabledAndroid={true}
+      style={{marginTop: 10, height:220}} /> ); 
+  } 
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'stretch',
-        backgroundColor: colors.bgMain,
-    },
-    demoScreen: {
-        backgroundColor: colors.bgMainRed
-    },
 
-    header: {
-        height: 60,
-        paddingLeft: 20,
-        flexDirection: 'row',
-        backgroundColor: 'red',
-        alignItems: 'center',
-        zIndex: 1001
-    },
-    body: {
-        flex: 1,
-        zIndex: 1000,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#000000'
-    },
-    menuIcon: {
-        width: 30,
-        height: 30
-    },
-    headerTitle: {
-        marginLeft: 30,
-        color: 'white',
-        fontSize: 20
-    },
-    content: {
-        fontSize: 18
-    }
-})
 
-AppRegistry.registerComponent('DataBankApp', () => SideMenu);
+AppRegistry.registerComponent('DataBankApp', () => DoghnutChart);
+
 
