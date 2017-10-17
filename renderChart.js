@@ -24,9 +24,9 @@ const slideHeight = viewportHeight * 0.4;
 const slideWidth = wp(75);
 const itemHorizontalMargin = wp(2);
 
-const SLIDER_1_FIRST_ITEM = 2;
+const SLIDER_1_FIRST_ITEM = 0;
 const sliderWidth = viewportWidth;
-const itemWidth = slideWidth + itemHorizontalMargin * 2;
+const itemWidth = slideWidth + itemHorizontalMargin * 1;
 
 
 export default class RenderChart extends Component {
@@ -40,60 +40,121 @@ export default class RenderChart extends Component {
         };
     }
 
+
+     fetchCountryData() {
+
+         const { params } = this.props.navigation.state;
+         //console.log("Country Name isssss:",params.countryName); 
+
+      fetch("https://restcountries.eu/rest/v2/alpha/" + params.countryCode)
+        .then((response) =>
+          response.json())
+        .then((responseData) => {
+          console.log(responseData)
+          this.setState({
+            countryData: responseData,
+            currencies: responseData.currencies,
+            languages: responseData.languages
+          });
+        })
+        .done();
+      }
+
+
+
+
+
     _renderLineChart(){
           return(
             <View style={{flex:3}}>
-            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  POPULATION GROWTH BY YEAR</Text>
-              <LineChart  data= {[11,24,15,56,54,35,32,23,13,25,16,15,20,2,7,15]}/>
+            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Aquaculture Production (Metric Tons) </Text>
+              <LineChart  data= {[1871,1830,1834,1261,739,414,128,128,126,576,539,101,277,212,214,82]}/>
             </View>
           ) 
     }
 
+
+
+    _renderItem ({item, index}) {
+        return (
+            <View
+              style={{flex: 1,
+              borderRadius:5,
+              backgroundColor:'#ffffff',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: 270,
+              height: 120}}
+            >
+          
+            <Text style={sty.overlayText}>{item.title}</Text>
+            <Text style={sty.subtextNumber}>{item.subtitle}</Text>
+            </View>
+        );
+}
+
      
+    get example1 () {
+        const { slider1ActiveSlide, slider1Ref } = this.state;
+
+        return (
+            <View>
+                <Carousel
+                  ref={(c) => { if (!this.state.slider1Ref) { this.setState({ slider1Ref: c }); } }}
+                  data={ENTRIES1}
+                  renderItem={this._renderItem}
+                  sliderWidth={sliderWidth}
+                  itemWidth={270}
+                  hasParallaxImages={true}
+                  firstItem={SLIDER_1_FIRST_ITEM}
+                  inactiveSlideScale={0.9}
+                  inactiveSlideOpacity={1}
+                  enableMomentum={false}
+                  scrollEndDragDebounceValue={Platform.OS === 'ios' ? 0 : 100}
+                  onSnapToItem={(index) => this.setState({ slider1ActiveSlide: index }) }
+                />
+                
+            </View>
+        );
+    }
+
+
+
+
     
  render() {
 
     return (
 
-    <View style={sty.container}>
-       <ScrollView >
-              <LinearGradient colors={['#fe5f5f', '#fe5f5f']} style={styles.linearGradient}>
+              <LinearGradient colors={['#17303e', '#17303e']} style={styles.container}>
             
                   <View style={sty.toolbar}>
-                    <Text style={sty.toolbarButton}><Icon name="ios-arrow-back-outline" size={35} color="#ffffff" /></Text>
-                    <Text style={sty.country}>{this.props.dataCategory}</Text>
                     <Text style={sty.toolbarButton}></Text>
+                    <Text style={sty.country}>{this.props.countryName.toUpperCase()}</Text>
+                    <Text style={sty.toolbarButton}></Text>
+                  </View>
+                  <Text style={sty.subtext}>Agriculture at a Glance</Text>
+                 <View style={{height:400}}>
+         
+                              {this._renderLineChart()}
+                             
                 </View>
 
-                  <Text style={sty.subtext}>
-                  </Text>
+                  <ScrollView
+                      style={styles.scrollview}
+                      indicatorStyle={'white'}
+                      scrollEventThrottle={200}
+                      directionalLockEnabled={true}
+                    >
 
-                  <Text style={sty.subtextNumber}>
-                      1.324B
-                  </Text>
-             
-
-                  <View style={{height:80}}>
-
-                  </View>
+                        {this.example1}
+                      
+                    </ScrollView>
                
               </LinearGradient>
 
            
 
-            <View style={{flex:1, marginTop: 70}}>
-         
-              {this._renderLineChart()}
-             {/*
-              {this._renderDoughnutChart()}
-
-              {this._renderBarChart()}
-           
-              {this._renderPolarArea()}
-            */}
-            </View>
-            </ScrollView>
-</View>
 
     );
   }
@@ -126,10 +187,11 @@ const sty = StyleSheet.create({
 
 
   linearGradient: {
-    zIndex:0,
+
     paddingLeft: 15,
     paddingRight: 15,
     borderRadius: 5,
+    flex:1
 
   },
   columnedItems:{
@@ -145,18 +207,19 @@ const sty = StyleSheet.create({
   country: {
     fontSize: 30,
     textAlign: 'center',
-    color:'#ffffff',
-    fontFamily:'Montserrat-Regular',
-    flex:1 
+    color:'#FB5260',
+    fontFamily:'Montserrat-SemiBold',
+    flex:1,
+
 
   },
 
   chartTitle: {
-    marginTop:26,
+    marginTop:60,
     marginBottom:0,
     marginLeft:10,
     fontSize: 15,
-    color:'#696969',
+    color:'#FFFFFF',
     fontFamily:'Montserrat-SemiBold',
     letterSpacing: 2,
     textAlign: 'center',
@@ -175,17 +238,17 @@ const sty = StyleSheet.create({
   },
   subtext: {
     marginTop:10,
-    fontSize: 14,
+    fontSize: 18,
     textAlign: 'center',
     color:'#ffffff',
-    fontFamily:'Montserrat-Light',
+    fontFamily:'Montserrat-Medium',
     letterSpacing: 2,
   },
   subtextNumber: {
-    marginTop:-10,
-    fontSize: 15,
+    marginTop:10,
+    fontSize: 25,
     textAlign: 'center',
-    color:'#ffffff',
+    color:'#214559',
     fontFamily:'Montserrat-Bold',
     letterSpacing: 2,
   },
@@ -203,5 +266,5 @@ const sty = StyleSheet.create({
 });
  
 
-AppRegistry.registerComponent('DataBankApp', () => DataBankApp);
+AppRegistry.registerComponent('DataBankApp', () => RenderChart);
 

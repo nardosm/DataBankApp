@@ -1,32 +1,32 @@
 export const ENTRIES1 = [
     {
-        title: 'AGRICULTURE',
-        subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
+        title: 'Cereal Yield (kg per hHectare)',
+        subtitle: '9,539.0',
         illustration: 'ios-nutrition-outline'
     },
     {
-        title: 'ECONOMY',
-        subtitle: 'Lorem ipsum dolor sit amet',
+        title: 'Crop Production Index',
+        subtitle: '106.6',
         illustration: 'ios-cash-outline'
     },
     {
-        title: 'EDUCATION',
-        subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
+        title: 'Fertilizer Consumption ',
+        subtitle: '14.7',
         illustration: 'ios-school-outline'
     },
     {
-        title: 'ENVIRONMENT',
-        subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
+        title: 'Food Production Index',
+        subtitle: '90.0',
         illustration: 'ios-leaf-outline'
     },
     {
-        title: 'HEALTH',
-        subtitle: 'Lorem ipsum dolor sit amet',
+        title: 'Livestock Production Index',
+        subtitle: '80.0',
         illustration: 'ios-pulse-outline'
     },
     {
-        title: 'INFRASTRUCTURE',
-        subtitle: 'Lorem ipsum dolor sit amet',
+        title: 'Total Fisheries Production',
+        subtitle: '27,007.0',
         illustration: 'ios-plane-outline'
     }
 ];

@@ -51,7 +51,7 @@ var myChart = new Chart(ctx, {
     return ( 
       <WebView 
       source={{html: htmlTest}} 
-      style={{marginTop: 10, height:220}} /> ); 
+      style={{marginTop: 40, height:220, backgroundColor:'transparent'}} /> ); 
   } 
 }
 

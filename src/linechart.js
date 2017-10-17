@@ -24,7 +24,11 @@ export default class LineChart extends Component {
     
 
 
+    var ctx = document.getElementById("lineChart").getContext("2d");
 
+    var gradient = ctx.createLinearGradient(0, 0, 0, 400);
+      gradient.addColorStop(0, 'rgba(254, 95, 95,0.4)');   
+      gradient.addColorStop(0.5, 'rgba(254, 95, 95,0)');
 
 
     var data = {
@@ -32,7 +36,7 @@ export default class LineChart extends Component {
         datasets: [
             {
                 label: "World Population",
-                fillColor: "rgba(220,220,220,0.2)",
+                fillColor: gradient,
                 strokeColor: "#FE5F5F",
                 pointColor: "#FE5F5F",
                 pointStrokeColor: "#fff",
@@ -43,17 +47,18 @@ export default class LineChart extends Component {
             
         ]
     };
-    var ctx = document.getElementById("lineChart").getContext("2d");
+
+
     var options = {
-      scaleShowLabels: false,
+      scaleShowLabels: true,
       datasetStrokeWidth:3,
       pointDot:false,
-      datasetFill:false, 
+      datasetFill:true, 
       scaleGridLineWidth:0.5,
       scaleFontFamily:'Montserrat-Light',
       tooltipFillColor:'#DA5050',
       tooltipFontFamily:'Montserrat-Regular',
-      scaleGridLineColor:'#fedfdf',
+      scaleGridLineColor:'transparent',
       scaleLineColor:'transparent',
       scaleSteps:2,
       scaleFontColor:'transparent'
@@ -70,7 +75,7 @@ export default class LineChart extends Component {
 </head>
 <body onload="displayLineChart();">
   <div class="box">
-    <canvas id="lineChart" height="250" width="430"></canvas>
+    <canvas id="lineChart" height="250" width="430" ></canvas>
   </div>
 </body>
 </html>
@@ -79,7 +84,7 @@ export default class LineChart extends Component {
     return ( 
       <WebView 
       source={{html: htmlTest}} 
-      style={{marginTop: 10, height:300}} /> ); 
+      style={{marginTop: 10, height:300, backgroundColor:'transparent'}} /> ); 
   } 
 }
 

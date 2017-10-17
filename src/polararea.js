@@ -20,8 +20,7 @@ export default class PolarArea extends Component {
 
 <body>
   <div id="chart">
-  <canvas id="myChart" width="400" height="400"></canvas>
-  <h1> Hello </h1>
+  <canvas id="myChart" width="400" height="270"></canvas>
 </div>
   <script src='http://code.jquery.com/jquery-2.2.4.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js'></script>
@@ -58,7 +57,7 @@ var myChart = new Chart(ctx, {
     return ( 
       <WebView 
       source={{html: htmlTest}} 
-      style={{marginTop: 10, height:400}} /> ); 
+      style={{marginTop: 10, height:300, backgroundColor:'transparent'}} /> ); 
   } 
 }
 
