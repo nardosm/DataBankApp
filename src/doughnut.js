@@ -23,23 +23,33 @@ export default class DoghnutChart extends Component {
     <script type="text/javascript">
       
           var ctx = document.getElementById("myChart").getContext('2d');
+          Chart.defaults.global.legend.display = false;
 var myChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["M", "T", "W", "T", "F"],
+    labels: [2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016],
     datasets: [{
       backgroundColor: [
         "#2ecc71",
         "#3498db",
         "#95a5a6",
         "#9b59b6",
-        "#f1c40f",
+        "#f1c40f",'#2f7ed8', '#0d233a', '#8bbc21', '#910000', '#1aadce', 
+    '#492970', '#f28f43', '#77a1e5', '#c42525', '#a6c96a'
 
       ],
-      data: [12, 19, 3, 17, 28]
+     data:  [${this.props.data}]
+
     }]
   }
 });
+
+var dynamicColors = function() {
+    var r = Math.floor(Math.random() * 255);
+    var g = Math.floor(Math.random() * 255);
+    var b = Math.floor(Math.random() * 255);
+    return "rgb(" + r + "," + g + "," + b + ")";
+}
 
     </script>
 

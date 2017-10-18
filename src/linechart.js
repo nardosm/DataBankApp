@@ -6,11 +6,12 @@ export default class LineChart extends Component {
   constructor(props){
     super(props);
     this.state=({
-      data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,24,15,56,54,35,32,23,13,25,16,15,20,2,7,15]
+      data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,24,15,56,54,44]
     })
   }
 
   render() { 
+   
 
    let htmlTest = `
              
@@ -59,7 +60,7 @@ export default class LineChart extends Component {
       tooltipFillColor:'#DA5050',
       tooltipFontFamily:'Montserrat-Regular',
       scaleGridLineColor:'transparent',
-      scaleLineColor:'transparent',
+      scaleLineColor:'#ffffff',
       scaleSteps:2,
       scaleFontColor:'transparent'
 
@@ -80,7 +81,8 @@ export default class LineChart extends Component {
 </body>
 </html>
   `
- console.log(htmlTest);
+
+  console.log(htmlTest)
     return ( 
       <WebView 
       source={{html: htmlTest}} 

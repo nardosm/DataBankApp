@@ -8,7 +8,12 @@ import Text from './styles/Text'
 import Icon from 'react-native-vector-icons/Ionicons'
 import colors from './styles/colors'
 import Modal from 'react-native-modalbox';
-import RenderAgricultureChart from './renderChart';
+import RenderAgricultureChart from './renderAgricultureChart';
+import RenderEconomyChart from './renderEconomyChart';
+import RenderEducationChart from './renderEducationChart';
+import RenderEnvironmentChart from './renderEnvironmentChart';
+import RenderHealthChart from './renderHealthChart';
+import RenderInfrastructureChart from './renderInfrastructureChart';
 
 
 
@@ -37,23 +42,23 @@ class Menu extends Component {
                             <Icon name='ios-nutrition-outline' size={40} color="#FB5260" /> 
                             <Text style={styles.menuText} type='h4White'>Agriculture</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity style={ styles.menu}>
+                      <TouchableOpacity style={ styles.menu} onPress={() => this.refs.economy.open()}>
                             <Icon name='ios-cash-outline' size={40} color="#FB5260" /> 
                             <Text style={styles.menuText} type='h4White'>Economy</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity style={ styles.menu}>
+                      <TouchableOpacity style={ styles.menu} onPress={() => this.refs.education.open()}>
                             <Icon name='ios-school-outline' size={40} color="#FB5260" /> 
                             <Text style={styles.menuText} type='h4White'>Education</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity style={ styles.menu}>
+                      <TouchableOpacity style={ styles.menu} onPress={() => this.refs.environment.open()}>
                             <Icon name='ios-leaf-outline' size={40} color="#FB5260" /> 
                             <Text style={styles.menuText} type='h4White'>Environment</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity style={ styles.menu}>
+                      <TouchableOpacity style={ styles.menu} onPress={() => this.refs.health.open()}>
                             <Icon name='ios-pulse-outline' size={40} color="#FB5260" /> 
                             <Text style={styles.menuText} type='h4White'>Health</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity style={ styles.menu}>
+                      <TouchableOpacity style={ styles.menu} onPress={() => this.refs.infrastructure.open()}>
                             <Icon name='ios-plane-outline' size={40} color="#FB5260" /> 
                             <Text style={styles.menuText} type='h4White'>Infrastructure</Text>
                       </TouchableOpacity>
@@ -80,7 +85,7 @@ class Menu extends Component {
                     onOpened={this.onOpen}
                     coverScreen={this.state.coverScreen}
                     onClosingState={this.onClosingState}>
-                     <RenderAgricultureChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Economy"/>
+                     <RenderEconomyChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Economy"/>
                   </Modal>
 
 
@@ -92,7 +97,7 @@ class Menu extends Component {
                     onOpened={this.onOpen}
                     coverScreen={this.state.coverScreen}
                     onClosingState={this.onClosingState}>
-                     <RenderAgricultureChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Education"/>
+                     <RenderEducationChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Education"/>
                   </Modal>
 
 
@@ -104,7 +109,7 @@ class Menu extends Component {
                     onOpened={this.onOpen}
                     coverScreen={this.state.coverScreen}
                     onClosingState={this.onClosingState}>
-                     <RenderAgricultureChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Environment"/>
+                     <RenderEnvironmentChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Environment"/>
                   </Modal>
 
 
@@ -116,7 +121,7 @@ class Menu extends Component {
                     onOpened={this.onOpen}
                     coverScreen={this.state.coverScreen}
                     onClosingState={this.onClosingState}>
-                     <RenderAgricultureChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Health"/>
+                     <RenderHealthChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Health"/>
                   </Modal>
 
 
@@ -128,7 +133,7 @@ class Menu extends Component {
                     onOpened={this.onOpen}
                     coverScreen={this.state.coverScreen}
                     onClosingState={this.onClosingState}>
-                     <RenderAgricultureChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Infrastructure"/>
+                     <RenderInfrastructureChart countryName = {this.props.countryName} countryCode={this.props.countryCode} dataCategory="Infrastructure"/>
                   </Modal>
 
 
