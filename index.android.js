@@ -1,56 +1,71 @@
 
-import React, { Component } from 'react'; 
-import { WebView,AppRegistry, View, Text,StyleSheet, StatusBar, Image, TouchableHighlight } from 'react-native'; 
-import Modal from 'react-native-modalbox';
-import { StackNavigator } from 'react-navigation';
-import CountryMenu from './country_menu';
+import React, { Component } from 'react';
+import { View, ScrollView, Text, StatusBar, Platform, Dimensions,AppRegistry, Image, StyleSheet, WebView} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
+import SliderEntry from './src/components/SliderEntry';
+import { ENTRIES1 } from './src/static/entries';
+import styles from './src/styles/index.style';
+import LineChart from './src/linechart';
+import DoghnutChart from './src/doughnut';
+import BarChart from './src/barchart';
+import PolarArea from './src/polararea';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-export default class RenderMap extends Component { 
 
-  static navigationOptions = {
-    title: 'Chat with Lucy',
-    header: null
-  };
+const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
+
+function wp (percentage) {
+    const value = (percentage * viewportWidth) / 100;
+    return Math.round(value);
+}
+
+const slideHeight = viewportHeight * 0.4;
+const slideWidth = wp(75);
+const itemHorizontalMargin = wp(2);
+
+const SLIDER_1_FIRST_ITEM = 0;
+const sliderWidth = viewportWidth;
+const itemWidth = slideWidth + itemHorizontalMargin * 1;
 
 
+export default class RenderChart extends Component {
 
-  constructor(props) {
-        super(props)
+
+    constructor (props) {
+        super(props);
         this.state = {
-           selectedCountry: null,
-           selectedCountryCode: null,
-          countryDetail: [{}],
-        }
-       
-    }
-    onMessage(data) {
-
-      data = data.split(',');
-      this.setState({
-        selectedCountry:data[0],
-        selectedCountryCode:data[1]
-      },
-      function () {
-          this.fetchCountryDetail(data[0])
-          this.refs.modal6.open()
-          console.log(this.state.selectedCountry);
-      })
-
+            slider1ActiveSlide: SLIDER_1_FIRST_ITEM,
+            slider1Ref: null,
+            currentDataPoint:"ER.FSH.AQUA.MT",
+            chartData:[{}]
+        };
     }
 
 
 
-     fetchCountryDetail(countryName) {
+     componentDidMount() {
+      this.fetchChartData();
+      //this.fetchCountryDetail();
+    }
 
-        const { params } = this.props.navigation.state;
 
-      fetch("https://kgsearch.googleapis.com/v1/entities:search?&types=Country&types=AdministrativeArea&query="+ countryName +"&key=AIzaSyCc1M0yZWtVzPt2R_sbRWklEHDpqTDj0hc&limit=1&indent=True")
+     fetchChartData() {
+
+        
+         //console.log("Country Name isssss:",params.countryName); 
+
+      fetch("http://api.worldbank.org/countries/br/indicators/"+"ER.FSH.AQUA.MT"+"?format=json&date=2000:2016")
         .then((response) =>
           response.json())
         .then((responseData) => {
-          console.log(responseData)
+          //console.log(responseData)
+          let result = responseData[1].map(item => item.value);
+          result = result.map(function(val, i) {
+                  return val === null ? 0 : parseInt(val);
+              });
           this.setState({
-            countryDetail: responseData.itemListElement[0].result.detailedDescription,
+            chartData: result
           });
         })
         .done();
@@ -58,190 +73,214 @@ export default class RenderMap extends Component {
 
 
 
-  render() { 
 
 
-     const { navigate } = this.props.navigation;
+    _renderLineChart(){
+          return(
+            <View style={{flex:3}}>
+            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  Aquaculture Production (Metric Tons) </Text>
+              <LineChart  data= {this.state.chartData}/>
+            </View>
+          ) 
+    }
 
-   let htmlTest = `
-             
 
-<html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
-  integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
-  crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
-  integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
-  crossorigin=""></script>
-  <script src="http://d3js.org/d3.v3.min.js"></script>
 
-  </head>
-  <body>
-
-<style type="text/css">
-#mapid {
-  width: 100%;
-  height: 100%;
-  
+    _renderItem ({item, index}) {
+        return (
+            <View
+              style={{flex: 1,
+              borderRadius:5,
+              backgroundColor:'#ffffff',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: 270,
+              height: 120}}
+            >
+          
+            <Text style={sty.overlayText}>{item.title}</Text>
+            <Text style={sty.subtextNumber}>{item.subtitle}</Text>
+            </View>
+        );
 }
-</style>
-    <div id="mapid"></div>
-  </body>
 
-</html>
-
-  `
- let jsCode = `
-       
-
-  var selectedCountry;
-  var map = new L.Map('mapid',
-    {
      
-      center: [18.9465,-90.0232],
-       zoomControl:false,
-      maxZoom : 10,
-      minZoom: 0,
-      zoom: 2,
-      attributionControl: false,
-      noWrap : true
-    }).addLayer(
-      new L.TileLayer("https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=8f24cebb48b04166bbecd9ce32d8acb9")
-    );
+    get example1 () {
+        const { slider1ActiveSlide, slider1Ref } = this.state;
 
-    d3.json("https://raw.githubusercontent.com/nardosm/DataBankApp/master/convertedCoords.json", function (json){
-        function style(feature) {
-          return {
-            fillColor: "transparent",
-            fill : true,
-            weight: 0.0,
-            opacity: 0.0,
-          };
-        }
-        var geo = L.geoJson(json, {
-          onEachFeature : onEachFeature,
-          style : style
-        }).addTo(map);
+        return (
+            <View>
+                <Carousel
+                  ref={(c) => { if (!this.state.slider1Ref) { this.setState({ slider1Ref: c }); } }}
+                  data={ENTRIES1}
+                  renderItem={this._renderItem}
+                  sliderWidth={sliderWidth}
+                  itemWidth={270}
+                  hasParallaxImages={true}
+                  firstItem={SLIDER_1_FIRST_ITEM}
+                  inactiveSlideScale={0.9}
+                  inactiveSlideOpacity={1}
+                  enableMomentum={false}
+                  scrollEndDragDebounceValue={Platform.OS === 'ios' ? 0 : 100}
+                  onSnapToItem={(index) => this.setState({ slider1ActiveSlide: index }) }
+                />
+                
+            </View>
+        );
+    }
 
 
-         geo.eachLayer(function (layer){
+
+
+    
+ render() {
+
+
+  
+  console.log("Chart data is :",this.state.chartData);
+
+
+    return (
+
+              <LinearGradient colors={['#17303e', '#17303e']} style={styles.container}>
+            
+                  <View style={sty.toolbar}>
+                    <Text style={sty.toolbarButton}></Text>
+                    <Text style={sty.country}>{this.props.countryName}</Text>
+                    <Text style={sty.toolbarButton}></Text>
+                  </View>
+                  <Text style={sty.subtext}>Agriculture at a Glance</Text>
+                 <View style={{height:400}}>
          
-        });
+                              {this._renderLineChart()}
+                             
+                </View>
 
-        function onEachFeature(feature, layer){
-          function onCountryClick(e){
-            selectedCountry = e.target.feature.properties.NAME;
-            selectedCountryCode = e.target.feature.properties.ISO2;
-            
+                  <ScrollView
+                      style={styles.scrollview}
+                      indicatorStyle={'white'}
+                      scrollEventThrottle={200}
+                      directionalLockEnabled={true}
+                    >
 
-            var countryInfo = selectedCountry + ',' + selectedCountryCode;
-            window.postMessage(countryInfo);
+                        {this.example1}
+                      
+                    </ScrollView>
+               
+              </LinearGradient>
+
            
-            
-            
-          };
-          layer.on({
-            click : onCountryClick
-          });
-        };
-      
-
-      });
-    `;
-
-    //console.log(this.state.selectedCountry);
-    return ( 
 
 
-     <View style={{flex:1, padding:-10, margin:-10}}>
-
-      <StatusBar  barStyle="light-content" translucent={true}/>
-      <WebView 
-        source={{html: htmlTest}} 
-        injectedJavaScript={jsCode}
-        style={{ padding:0, margin:0}} 
-        onMessage={(event)=> this.onMessage(event.nativeEvent.data)}
-      /> 
-        <Modal style={[styles.modal, styles.modal4]} position={"bottom"} ref={"modal6"} swipeArea={20} backdropOpacity={0}>
-          <Image
-              style={{ height: 30,width:30,borderRadius: 50 }}
-              source={{uri: 'http://www.geognos.com/api/en/countries/flag/' + this.state.selectedCountryCode + '.png'}}
-          />
-          <Text style={styles.countryText}>{this.state.selectedCountry}</Text>
-          <Text numberOfLines={4} style={styles.aboutText}>{this.state.countryDetail.articleBody}</Text>
-          <TouchableHighlight
-            style={styles.submit}
-            onPress={() => navigate('CountryDetail', { countryName: this.state.selectedCountry, countryCode:this.state.selectedCountryCode })}
-            underlayColor='#fff'>
-              <Text style={styles.submitText}>Explore</Text>
-          </TouchableHighlight>
-        </Modal>
-      </View>
-
-    ); 
-  } 
+    );
+  }
 }
 
+const sty = StyleSheet.create({
+
+
+  toolbar:{
+
+        marginTop:20,
+        flexDirection:'row'    //Step 1
+    },
+    toolbarButton:{
+      marginTop:5,
+        width: 50,            //Step 2
+        color:'#fff',
+        textAlign:'center'
+    },
+    toolbarTitle:{
+        color:'#fff',
+        textAlign:'center',
+        fontWeight:'bold',
+        flex:1                //Step 3
+    },
 
 
 
-const styles = StyleSheet.create({
 
-  modal: {
-    justifyContent: 'center',
-    alignItems: 'center'
+
+
+  linearGradient: {
+
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5,
+    flex:1
+
+  },
+  columnedItems:{
+     flexDirection:'row',
+     justifyContent: 'space-between',
+
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+
+  },
+  country: {
+    fontSize: 30,
+    textAlign: 'center',
+    color:'#FB5260',
+    fontFamily:'Montserrat-SemiBold',
+    flex:1,
+
+
   },
 
-  modal4: {
-    height: 300
-  },
-
-  countryText:{
-    fontSize:25,
-    fontFamily:'Montserrat-Medium',
-    color:'#214559',
-
-  },
-  aboutText:{
+  chartTitle: {
+    marginTop:60,
+    marginBottom:0,
+    marginLeft:10,
     fontSize: 15,
+    color:'#FFFFFF',
+    fontFamily:'Montserrat-SemiBold',
+    letterSpacing: 2,
+    textAlign: 'center',
+
+
+  },
+
+  overlayText: {
+    fontSize: 15,
+    textAlign: 'center',
+    color:'#FB5260',
+    fontFamily:'Montserrat-Bold',
+    letterSpacing: 2,
+
+
+  },
+  subtext: {
+    marginTop:10,
+    fontSize: 18,
+    textAlign: 'center',
+    color:'#ffffff',
+    fontFamily:'Montserrat-Medium',
+    letterSpacing: 2,
+  },
+  subtextNumber: {
+    marginTop:10,
+    fontSize: 25,
+    textAlign: 'center',
+    color:'#214559',
+    fontFamily:'Montserrat-Bold',
+    letterSpacing: 2,
+  },
+  subtextSmallText: {
+    marginTop:25,
+    marginBottom:10,
+    fontSize: 12,
+    textAlign: 'center',
+    color:'#ffffff',
     fontFamily:'Montserrat-Light',
-    paddingLeft:20,
-    paddingRight:20,
-    paddingTop: 10
-  },
-  submit:{
-    backgroundColor:'#FB5260',
-    borderRadius:10,
-    borderWidth: 1,
-    borderColor: '#fff',
-    marginTop:30,
+    letterSpacing: 2,
 
   },
-  submitText:{
-      color:'#fff',
-      textAlign:'center',
-      paddingLeft:50,
-      paddingRight:50,
-      paddingTop:10,
-      paddingBottom:10,
-      fontSize:20,
-      fontFamily:'Montserrat-Medium',
-  }
-
 
 });
+ 
 
-
-
-export const SimpleApp = StackNavigator({
-  Home: { screen: RenderMap },
-  CountryDetail: { screen: CountryMenu },
-});
-
-
-
-AppRegistry.registerComponent('DataBankApp', () => SimpleApp);
-
+AppRegistry.registerComponent('DataBankApp', () => RenderChart);
 

@@ -20,9 +20,6 @@ static navigationOptions = {
     header: null
   };
 
-
-
-
     constructor(props) {
         super(props)
         this.state = {
@@ -40,9 +37,6 @@ static navigationOptions = {
 
 
     componentDidMount() {
-
-
-
       this.fetchCountryData();
       this.fetchCountryDetail();
     }
