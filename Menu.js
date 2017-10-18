@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
         fontFamily:'Montserrat-Medium',
     },
     header: {
-        marginTop: 20,
+        marginTop: 80,
         marginBottom: 20
     },
     userInfosHolder: {

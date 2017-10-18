@@ -48,28 +48,29 @@ export default class RenderChart extends Component {
         this.state = {
             slider1ActiveSlide: SLIDER_1_FIRST_ITEM,
             slider1Ref: null, 
-          
+            chartData0:[{}],
+            chartData1:[{}],
+            chartData2:[{}],
+            chartData3:[{}],
         };
     }
 
 
 
      componentDidMount() {
-      //this.fetchChartData("ER.FSH.AQUA.MT",0);
-      //this.fetchChartData("AG.PRD.CROP.XD",1);
-      //this.fetchChartData("AG.CON.FERT.PT.ZS",2);
-      //this.fetchChartData("AG.PRD.FOOD.XD",3);
-      //this.fetchChartData("AG.PRD.LVSK.XD",4);
-      //this.fetchChartData("ER.FSH.PROD.MT",5);
+      this.fetchChartData0();
+      this.fetchChartData1();
+      this.fetchChartData2();
+      this.fetchChartData3();
 
     }
 
-     fetchChartData(indicatorValue,index) {
+     fetchChartData0(indicatorValue,index) {
 
         
          //console.log("Country Name isssss:",params.countryName); 
 
-      fetch("http://api.worldbank.org/countries/br/indicators/"+indicatorValue+"?format=json&date=2000:2016")
+      fetch("http://api.worldbank.org/countries/"+this.props.countryCode+"/indicators/"+"ER.FSH.AQUA.MT"+"?format=json&date=2000:2016")
         .then((response) =>
           response.json())
         .then((responseData) => {
@@ -82,12 +83,92 @@ export default class RenderChart extends Component {
 
           console.log("Result Is: ",result)
           this.setState({
-            chartData: result
+            chartData0: result
           });
         })
         .done();
       
       }
+
+        fetchChartData1(indicatorValue,index) {
+
+        
+         //console.log("Country Name isssss:",params.countryName); 
+
+      fetch("http://api.worldbank.org/countries/"+this.props.countryCode+"/indicators/"+"AG.PRD.CROP.XD"+"?format=json&date=2000:2016")
+        .then((response) =>
+          response.json())
+        .then((responseData) => {
+          //console.log(responseData)
+          let result = responseData[1].map(item => item.value);
+
+          result = result.map(function(val, i) {
+                  return val === null ? 0 : parseInt(val);
+              });
+
+          console.log("Result Is: ",result)
+          this.setState({
+            chartData1: result
+          });
+        })
+        .done();
+      
+      }
+
+
+
+      fetchChartData2(indicatorValue,index) {
+
+        
+         //console.log("Country Name isssss:",params.countryName); 
+
+      fetch("http://api.worldbank.org/countries/"+this.props.countryCode+"/indicators/"+ "AG.CON.FERT.PT.ZS"+"?format=json&date=2000:2016")
+        .then((response) =>
+          response.json())
+        .then((responseData) => {
+          //console.log(responseData)
+          let result = responseData[1].map(item => item.value);
+
+          result = result.map(function(val, i) {
+                  return val === null ? 0 : parseInt(val);
+              });
+
+          console.log("Result Is: ",result)
+          this.setState({
+            chartData2: result
+          });
+        })
+        .done();
+      
+      }
+
+
+
+      fetchChartData3(indicatorValue,index) {
+
+        
+         //console.log("Country Name isssss:",params.countryName); 
+
+      fetch("http://api.worldbank.org/countries/"+this.props.countryCode+"/indicators/"+"AG.PRD.FOOD.XD"+"?format=json&date=2000:2016")
+        .then((response) =>
+          response.json())
+        .then((responseData) => {
+          //console.log(responseData)
+          let result = responseData[1].map(item => item.value);
+
+          result = result.map(function(val, i) {
+                  return val === null ? 0 : parseInt(val);
+              });
+
+          console.log("Result Is: ",result)
+          this.setState({
+            chartData3: result
+          });
+        })
+        .done();
+      
+      }
+
 
 
 
@@ -101,7 +182,7 @@ export default class RenderChart extends Component {
           return(
             <View style={{flex:3}}>
             <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" /> {ENTRIES3[this.state.slider1ActiveSlide].title}</Text>
-              <LineChart  data= {ENTRIES3[this.state.slider1ActiveSlide].data}/>
+              <LineChart  data= {this.state.chartData0}/>
             </View>
           ) 
         break;
@@ -110,7 +191,7 @@ export default class RenderChart extends Component {
           return(
             <View style={{flex:3}}>
             <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  {ENTRIES3[this.state.slider1ActiveSlide].title} </Text>
-              <DoghnutChart  data= {ENTRIES3[this.state.slider1ActiveSlide].data}/>
+              <DoghnutChart data= {this.state.chartData1}/>
             </View>
           ) 
         break;
@@ -119,7 +200,7 @@ export default class RenderChart extends Component {
           return(
             <View style={{flex:3}}>
             <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" /> {ENTRIES3[this.state.slider1ActiveSlide].title} </Text>
-              <BarChart  data= {ENTRIES3[this.state.slider1ActiveSlide].data}/>
+              <BarChart  data= {this.state.chartData2}/>
             </View>
           ) 
         break;
@@ -128,7 +209,7 @@ export default class RenderChart extends Component {
           return(
             <View style={{flex:3}}>
             <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  {ENTRIES3[this.state.slider1ActiveSlide].title} </Text>
-              <PolarArea  data= {ENTRIES3[this.state.slider1ActiveSlide].data}/>
+              <PolarArea data= {this.state.chartData3}/>
             </View>
           ) 
         break;
@@ -186,7 +267,10 @@ export default class RenderChart extends Component {
 
 
   
-  console.log("Chart data is :", ENTRIES3[0].data);
+  console.log("Chart0 data is :", this.state.chartData0);
+  console.log("Chart1 data is :", this.state.chartData1);
+  console.log("Chart2 data is :", this.state.chartData2);
+  console.log("Chart3 data is :", this.state.chartData3);
 
 
     return (
@@ -198,7 +282,7 @@ export default class RenderChart extends Component {
                     <Text style={sty.country}>{this.props.countryName}</Text>
                     <Text style={sty.toolbarButton}></Text>
                   </View>
-                  <Text style={sty.subtext}>Agriculture at a Glance</Text>
+                  <Text style={sty.subtext}>Education at a Glance</Text>
                  <View style={{height:400}}>
          
                               {this._renderLineChart()}
