@@ -1,11 +1,12 @@
 
-import React, { Component } from 'react'; 
-import { WebView,AppRegistry, View, Text,StyleSheet, StatusBar, Image, TouchableHighlight } from 'react-native'; 
+import React, { Component } from 'react';
+import { WebView,AppRegistry, View, Text,StyleSheet, StatusBar, Image, TouchableHighlight } from 'react-native';
 import Modal from 'react-native-modalbox';
 import { StackNavigator } from 'react-navigation';
 import CountryMenu from './country_menu';
+//import SplashScreen from 'react-native-splash-screen';
 
-export default class RenderMap extends Component { 
+export default class RenderMap extends Component {
 
   static navigationOptions = {
     title: 'Chat with Lucy',
@@ -20,8 +21,8 @@ export default class RenderMap extends Component {
            selectedCountry: null,
            selectedCountryCode: null,
           countryDetail: [{}],
+          modalVisible : true
         }
-       
     }
     onMessage(data) {
 
@@ -58,13 +59,13 @@ export default class RenderMap extends Component {
 
 
 
-  render() { 
+  render() {
 
 
      const { navigate } = this.props.navigation;
 
    let htmlTest = `
-             
+
 
 <html>
   <head>
@@ -84,7 +85,7 @@ export default class RenderMap extends Component {
 #mapid {
   width: 100%;
   height: 100%;
-  
+
 }
 </style>
     <div id="mapid"></div>
@@ -94,12 +95,12 @@ export default class RenderMap extends Component {
 
   `
  let jsCode = `
-       
+
 
   var selectedCountry;
   var map = new L.Map('mapid',
     {
-     
+
       center: [18.9465,-90.0232],
        zoomControl:false,
       maxZoom : 10,
@@ -127,43 +128,48 @@ export default class RenderMap extends Component {
 
 
          geo.eachLayer(function (layer){
-         
+
         });
 
         function onEachFeature(feature, layer){
           function onCountryClick(e){
             selectedCountry = e.target.feature.properties.NAME;
             selectedCountryCode = e.target.feature.properties.ISO2;
-            
+
 
             var countryInfo = selectedCountry + ',' + selectedCountryCode;
             window.postMessage(countryInfo);
-           
-            
-            
+
+
+
           };
           layer.on({
             click : onCountryClick
           });
         };
-      
+
 
       });
     `;
 
     //console.log(this.state.selectedCountry);
-    return ( 
+    return (
 
 
      <View style={{flex:1, padding:-10, margin:-10}}>
-
+       <Modal
+                 animationType="slide"
+                 transparent={false}
+                 visible={this.state.modalVisible}
+                 onRequestClose={() => this.state.modalVisible = false}
+                 />
       <StatusBar  barStyle="light-content" translucent={true}/>
-      <WebView 
-        source={{html: htmlTest}} 
+      <WebView
+        source={{html: htmlTest}}
         injectedJavaScript={jsCode}
-        style={{ padding:0, margin:0}} 
+        style={{ padding:0, margin:0}}
         onMessage={(event)=> this.onMessage(event.nativeEvent.data)}
-      /> 
+      />
         <Modal style={[styles.modal, styles.modal4]} position={"bottom"} ref={"modal6"} swipeArea={20} backdropOpacity={0}>
           <Image
               style={{ height: 30,width:30,borderRadius: 50 }}
@@ -180,8 +186,8 @@ export default class RenderMap extends Component {
         </Modal>
       </View>
 
-    ); 
-  } 
+    );
+  }
 }
 
 
@@ -243,5 +249,3 @@ export const SimpleApp = StackNavigator({
 
 
 AppRegistry.registerComponent('DataBankApp', () => SimpleApp);
-
-

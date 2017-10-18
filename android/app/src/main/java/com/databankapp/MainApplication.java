@@ -3,6 +3,7 @@ package com.databankapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+//import com.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.wix.interactable.Interactable;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+           // new SplashScreenReactPackage(),
             new Interactable(),
             new VectorIconsPackage(),
             new LinearGradientPackage()
