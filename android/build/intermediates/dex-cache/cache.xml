@@ -3,12 +3,48 @@
 
     <item
         is-multidex="false"
+        jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\DataBankApp\react-native-vector-icons\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="f2cf527de8d0bd35d72088fafea02395ba4a9eec">
+        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\DataBankApp-react-native-vector-icons-unspecified_2037964175b8123e5d0562979c686fa065f8e3f9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\DataBankApp\react-native-interactable\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="bab06551b01ee5f100139aedecdc10039eac1be9">
+        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\DataBankApp-react-native-interactable-unspecified_245965ef834431e1ef6a8000647783aca41d4e0e.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\dapamart\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.1"
         sha1="6975da39a7040257bd51d21a231b76c915872d38">
         <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\javax.inject-1_67af31d84050c674f1c2b793351e818f023ccb7a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.48.4\jars\libs\infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\infer-annotations-4.0_a3bbdd9510be7b8bbd7ed733e7900b5bbc0a66a9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
+        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fbcore-1.3.0_615fa922302b57825bf45964170075098c79cd15.jar" />
     </item>
     <item
         is-multidex="false"
@@ -30,12 +66,39 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-okhttp3\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
+        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-okhttp3-1.3.0_949673cfdf572317472d42a74d140e567524cea5.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\1.3.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.1"
         sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
         <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fresco-1.3.0_6903f0af782f131db40c74b90d72c0466a2edf89.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\dapamart\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.13.0\a9283170b7305c8d92d25aff02a6ab7e45d06cbe\okio-1.13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
+        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\okio-1.13.0_04edb6df9b7b6346e9455743e375081f387eba74.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
+        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-base-1.3.0_0ddb18555dd29ed9376fd74bf72fdf612f182ada.jar" />
     </item>
     <item
         is-multidex="false"
@@ -57,12 +120,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\dapamart\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp-urlconnection\3.6.0\3f9b16b774f2c36cfd86dd2053d0b3059531dacc\okhttp-urlconnection-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
+        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\okhttp-urlconnection-3.6.0_c27d5b0a96ee10ad6d9e56678da08827218cc126.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.48.4\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.1"
         sha1="56d3e81fee5f47a7a12ab65f4620f580c9c71d1e">
         <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.react-react-native-0.48.4_861a16dfef5891453ff5a35deed07d779c575f9b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\dapamart\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0_568bf6db44419c62306ab4f2cf1cb40298672ab4.jar" />
     </item>
     <item
         is-multidex="false"
@@ -81,6 +162,15 @@
         revision="26.0.1"
         sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
         <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-drawee-1.3.0_1a7427c41cb5a8f9840f0db930888cb1146e9b51.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1_68d2ade74643fd63db45232a1341d9f44f5cd055.jar" />
     </item>
     <item
         is-multidex="false"
@@ -117,96 +207,6 @@
         revision="26.0.1"
         sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
         <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1_0eaca7dae6dc351e9dea499ae761d83c42c35b04.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\DataBankApp\react-native-vector-icons\unspecified\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="f2cf527de8d0bd35d72088fafea02395ba4a9eec">
-        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\DataBankApp-react-native-vector-icons-unspecified_2037964175b8123e5d0562979c686fa065f8e3f9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\DataBankApp\react-native-interactable\unspecified\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="bab06551b01ee5f100139aedecdc10039eac1be9">
-        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\DataBankApp-react-native-interactable-unspecified_245965ef834431e1ef6a8000647783aca41d4e0e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.48.4\jars\libs\infer-annotations-4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
-        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\infer-annotations-4.0_a3bbdd9510be7b8bbd7ed733e7900b5bbc0a66a9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\1.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
-        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fbcore-1.3.0_615fa922302b57825bf45964170075098c79cd15.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-okhttp3\1.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
-        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-okhttp3-1.3.0_949673cfdf572317472d42a74d140e567524cea5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\dapamart\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.13.0\a9283170b7305c8d92d25aff02a6ab7e45d06cbe\okio-1.13.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
-        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\okio-1.13.0_04edb6df9b7b6346e9455743e375081f387eba74.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\1.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
-        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-base-1.3.0_0ddb18555dd29ed9376fd74bf72fdf612f182ada.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\dapamart\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp-urlconnection\3.6.0\3f9b16b774f2c36cfd86dd2053d0b3059531dacc\okhttp-urlconnection-3.6.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
-        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\okhttp-urlconnection-3.6.0_c27d5b0a96ee10ad6d9e56678da08827218cc126.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\dapamart\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0_568bf6db44419c62306ab4f2cf1cb40298672ab4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1_68d2ade74643fd63db45232a1341d9f44f5cd055.jar" />
     </item>
     <item
         is-multidex="false"

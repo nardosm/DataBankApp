@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:1:1-40:12
+ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:1:1-39:12
 	package
 		ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:2:5-30
 		INJECTED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml
@@ -49,7 +49,7 @@ MERGED from [com.facebook.soloader:soloader:0.1.0] C:\Users\dapamart\Documents\I
 		INJECTED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml
 application
-ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:13:5-38:19
+ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:13:5-37:19
 MERGED from [DataBankApp:react-native-interactable:unspecified] C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\DataBankApp\react-native-interactable\unspecified\AndroidManifest.xml:13:5-16:19
 MERGED from [com.facebook.react:react-native:0.48.4] C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.48.4\AndroidManifest.xml:13:5-20
 MERGED from [com.android.support:appcompat-v7:23.0.1] C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:22:5-20
@@ -87,28 +87,26 @@ ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\ma
 	android:name
 		ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:26:27-74
 activity#com.databankapp.MainActivity
-ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:29:7-36:18
-	android:label
-		ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:31:9-41
+ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:29:7-35:18
 	android:exported
-		ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:34:9-32
+		ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:33:9-32
 	android:windowSoftInputMode
-		ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:33:9-51
+		ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:32:9-51
 	android:configChanges
-		ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:32:9-79
+		ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:31:9-79
 	android:name
 		ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:30:9-37
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:37:7-84
+ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:36:7-84
 	android:name
-		ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:37:17-81
+		ADDED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:36:17-81
 uses-permission#android.permission.VIBRATE
 ADDED from [DataBankApp:react-native-interactable:unspecified] C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\DataBankApp\react-native-interactable\unspecified\AndroidManifest.xml:11:5-66
 	android:name
 		ADDED from [DataBankApp:react-native-interactable:unspecified] C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\build\intermediates\exploded-aar\DataBankApp\react-native-interactable\unspecified\AndroidManifest.xml:11:22-63
 android:uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-IMPLIED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:1:1-40:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:1:1-39:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 android:uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:1:1-40:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:1:1-39:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:1:1-40:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\Users\dapamart\Documents\Innovation\DataBankApp\android\app\src\main\AndroidManifest.xml:1:1-39:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
