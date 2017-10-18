@@ -70,7 +70,7 @@ export default class RenderChart extends Component {
         
          //console.log("Country Name isssss:",params.countryName); 
 
-      fetch("http://api.worldbank.org/countries/"+this.props.countryCode+"/indicators/"+"ER.FSH.AQUA.MT"+"?format=json&date=2000:2016")
+      fetch("http://api.worldbank.org/countries/"+this.props.countryCode+"/indicators/"+"IT.CEL.SETS"+"?format=json&date=2000:2016")
         .then((response) =>
           response.json())
         .then((responseData) => {
@@ -95,7 +95,7 @@ export default class RenderChart extends Component {
         
          //console.log("Country Name isssss:",params.countryName); 
 
-      fetch("http://api.worldbank.org/countries/"+this.props.countryCode+"/indicators/"+"AG.PRD.CROP.XD"+"?format=json&date=2000:2016")
+      fetch("http://api.worldbank.org/countries/"+this.props.countryCode+"/indicators/"+"IT.NET.SECR"+"?format=json&date=2000:2016")
         .then((response) =>
           response.json())
         .then((responseData) => {
@@ -122,7 +122,7 @@ export default class RenderChart extends Component {
         
          //console.log("Country Name isssss:",params.countryName); 
 
-      fetch("http://api.worldbank.org/countries/"+this.props.countryCode+"/indicators/"+ "AG.CON.FERT.PT.ZS"+"?format=json&date=2000:2016")
+      fetch("http://api.worldbank.org/countries/"+this.props.countryCode+"/indicators/"+ "IS.RRS.TOTL.KM"+"?format=json&date=2000:2016")
         .then((response) =>
           response.json())
         .then((responseData) => {
@@ -149,7 +149,7 @@ export default class RenderChart extends Component {
         
          //console.log("Country Name isssss:",params.countryName); 
 
-      fetch("http://api.worldbank.org/countries/"+this.props.countryCode+"/indicators/"+"AG.PRD.FOOD.XD"+"?format=json&date=2000:2016")
+      fetch("http://api.worldbank.org/countries/"+this.props.countryCode+"/indicators/"+"IS.AIR.GOOD.MT.K1"+"?format=json&date=2000:2016")
         .then((response) =>
           response.json())
         .then((responseData) => {
