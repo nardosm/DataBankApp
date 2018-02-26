@@ -3,6 +3,9 @@ package com.databankapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.horcrux.svg.SvgPackage;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
+import com.smixx.reactnativeicons.ReactNativeIcons;
 //import com.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.wix.interactable.Interactable;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -27,6 +30,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new SvgPackage(),
+            new SplashScreenReactPackage(),
+            new ReactNativeIcons(),
            // new SplashScreenReactPackage(),
             new Interactable(),
             new VectorIconsPackage(),

@@ -48,7 +48,7 @@ static navigationOptions = {
          const { params } = this.props.navigation.state;
          //console.log("Country Name isssss:",params.countryName); 
 
-      fetch("https://restcountries.eu/rest/v2/alpha/" + params.countryCode)
+      fetch("https://restcountries.eu/rest/v2/alpha/" + "ET")
         .then((response) =>
           response.json())
         .then((responseData) => {
@@ -66,7 +66,7 @@ static navigationOptions = {
 
         const { params } = this.props.navigation.state;
 
-      fetch("https://kgsearch.googleapis.com/v1/entities:search?&types=Country&types=AdministrativeArea&query="+ params.countryName +"&key=AIzaSyCc1M0yZWtVzPt2R_sbRWklEHDpqTDj0hc&limit=1&indent=True")
+      fetch("https://kgsearch.googleapis.com/v1/entities:search?&types=Country&types=AdministrativeArea&query="+ "Ethiopia" +"&key=AIzaSyCc1M0yZWtVzPt2R_sbRWklEHDpqTDj0hc&limit=1&indent=True")
         .then((response) =>
           response.json())
         .then((responseData) => {

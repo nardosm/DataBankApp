@@ -10,7 +10,7 @@ import LineChart from './src/linechart';
 import DoghnutChart from './src/doughnut';
 import BarChart from './src/barchart';
 import PolarArea from './src/polararea';
-import Icon from 'react-native-vector-icons/Ionicons';
+
 //import GridView from 'react-native-super-g
 
 
@@ -58,19 +58,19 @@ export default class CountryDetail extends Component {
 
                 <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginBottom:70, marginRight: 20}}>
                   <View>
-                    <Text style={sty.statText}><Icon name="ios-people-outline" size={40} color={themeColor} /></Text>
+                   
                     <Text style={sty.statText}>{this.intToString(countryData.population)}</Text>
                   </View>
                   <View>
-                    <Text style={sty.statText}><Icon name="ios-cash-outline" size={40} color={themeColor} /></Text>
+    
                     <Text style={sty.statText}>{currencies[0].code}</Text>
                   </View>
                   <View style={{width:90}}>
-                    <Text style={sty.statText}><Icon name="ios-globe-outline" size={40} color={themeColor} /></Text>
+             
                     <Text  numberOfLines={1} style={sty.statText}>{languages[0].name}</Text>
                   </View>
                   <View>
-                    <Text style={sty.statText}><Icon name="ios-map-outline" size={40} color={themeColor} /></Text>
+        
                     <Text style={sty.statText}>{this.intToString(countryData.area)}</Text>
                   </View>
                 </View>
@@ -235,24 +235,24 @@ var sty = StyleSheet.create({
   },
 
   countryName:{
-    fontFamily:'Montserrat-SemiBold',
+
     fontSize:50,
     color:subThemeColor
   },
   subTextCountry:{
-    fontFamily:'Montserrat-Medium',
+
     marginTop:-8,
     fontSize:18,
     marginBottom: 20
   },
   statText:{
-    fontFamily:'Montserrat-Medium',
+
     textAlign:'center',
     fontSize: 18,
     color:themeColor
   },
   countryDetail:{
-    fontFamily:'Montserrat-Light',
+
     fontSize: 15,
     lineHeight:30
   },
@@ -262,7 +262,7 @@ var sty = StyleSheet.create({
   },
   titles:{
     marginBottom:15,
-    fontFamily:'Montserrat-Bold',
+
     fontSize:20,
     color:subThemeColor
   },

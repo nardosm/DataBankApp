@@ -200,13 +200,13 @@ const styles = StyleSheet.create({
 
   countryText:{
     fontSize:25,
-    fontFamily:'Montserrat-Medium',
+
     color:'#214559',
 
   },
   aboutText:{
     fontSize: 15,
-    fontFamily:'Montserrat-Light',
+
     paddingLeft:20,
     paddingRight:20,
     paddingTop: 10
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
       paddingTop:10,
       paddingBottom:10,
       fontSize:20,
-      fontFamily:'Montserrat-Medium',
+   
   }
 
 

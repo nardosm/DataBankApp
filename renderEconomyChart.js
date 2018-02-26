@@ -12,7 +12,7 @@ import LineChart2 from './src/linechart';
 import DoghnutChart from './src/doughnut';
 import BarChart from './src/barchart';
 import PolarArea from './src/polararea';
-import Icon from 'react-native-vector-icons/Ionicons';
+
 
 
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
@@ -181,7 +181,6 @@ export default class RenderChart extends Component {
         case 0:
           return(
             <View style={{flex:3}}>
-            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" /> {ENTRIES2[this.state.slider1ActiveSlide].title}</Text>
               <LineChart  data= {this.state.chartData0}/>
             </View>
           ) 
@@ -190,7 +189,6 @@ export default class RenderChart extends Component {
         case 1:
           return(
             <View style={{flex:3}}>
-            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  {ENTRIES2[this.state.slider1ActiveSlide].title} </Text>
               <DoghnutChart data= {this.state.chartData1}/>
             </View>
           ) 
@@ -199,7 +197,6 @@ export default class RenderChart extends Component {
         case 2:
           return(
             <View style={{flex:3}}>
-            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" /> {ENTRIES2[this.state.slider1ActiveSlide].title} </Text>
               <BarChart  data= {this.state.chartData2}/>
             </View>
           ) 
@@ -208,7 +205,6 @@ export default class RenderChart extends Component {
         case 3:
           return(
             <View style={{flex:3}}>
-            <Text style={sty.chartTitle}><Icon name="ios-stats" size={20} color="#FB5260" />  {ENTRIES2[this.state.slider1ActiveSlide].title} </Text>
               <PolarArea data= {this.state.chartData3}/>
             </View>
           ) 
@@ -355,7 +351,7 @@ const sty = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center',
     color:'#FB5260',
-    fontFamily:'Montserrat-SemiBold',
+
     flex:1,
 
 
@@ -367,7 +363,7 @@ const sty = StyleSheet.create({
     marginLeft:10,
     fontSize: 15,
     color:'#FFFFFF',
-    fontFamily:'Montserrat-SemiBold',
+
     letterSpacing: 2,
     textAlign: 'center',
 
@@ -378,7 +374,7 @@ const sty = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     color:'#FB5260',
-    fontFamily:'Montserrat-Bold',
+
     letterSpacing: 2,
 
 
@@ -388,7 +384,7 @@ const sty = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     color:'#ffffff',
-    fontFamily:'Montserrat-Medium',
+
     letterSpacing: 2,
   },
   subtextNumber: {
@@ -396,7 +392,7 @@ const sty = StyleSheet.create({
     fontSize: 25,
     textAlign: 'center',
     color:'#214559',
-    fontFamily:'Montserrat-Bold',
+
     letterSpacing: 2,
   },
   subtextSmallText: {
@@ -405,7 +401,7 @@ const sty = StyleSheet.create({
     fontSize: 12,
     textAlign: 'center',
     color:'#ffffff',
-    fontFamily:'Montserrat-Light',
+
     letterSpacing: 2,
 
   },

@@ -39,27 +39,27 @@ class Menu extends Component {
                   <View style={{ paddingHorizontal: 30 }}>
                         { this._renderHeader() }
                       <TouchableOpacity style={styles.menu} onPress={() => this.refs.agriculture.open()}>
-                            <Icon name='ios-nutrition-outline' size={40} color="#FB5260" /> 
+                           
                             <Text style={styles.menuText} type='h4White'>Agriculture</Text>
                       </TouchableOpacity>
                       <TouchableOpacity style={ styles.menu} onPress={() => this.refs.economy.open()}>
-                            <Icon name='ios-cash-outline' size={40} color="#FB5260" /> 
+                           
                             <Text style={styles.menuText} type='h4White'>Economy</Text>
                       </TouchableOpacity>
                       <TouchableOpacity style={ styles.menu} onPress={() => this.refs.education.open()}>
-                            <Icon name='ios-school-outline' size={40} color="#FB5260" /> 
+                          
                             <Text style={styles.menuText} type='h4White'>Education</Text>
                       </TouchableOpacity>
                       <TouchableOpacity style={ styles.menu} onPress={() => this.refs.environment.open()}>
-                            <Icon name='ios-leaf-outline' size={40} color="#FB5260" /> 
+                           
                             <Text style={styles.menuText} type='h4White'>Environment</Text>
                       </TouchableOpacity>
                       <TouchableOpacity style={ styles.menu} onPress={() => this.refs.health.open()}>
-                            <Icon name='ios-pulse-outline' size={40} color="#FB5260" /> 
+                            
                             <Text style={styles.menuText} type='h4White'>Health</Text>
                       </TouchableOpacity>
                       <TouchableOpacity style={ styles.menu} onPress={() => this.refs.infrastructure.open()}>
-                            <Icon name='ios-plane-outline' size={40} color="#FB5260" /> 
+                            
                             <Text style={styles.menuText} type='h4White'>Infrastructure</Text>
                       </TouchableOpacity>
                   </View>
@@ -150,7 +150,7 @@ class Menu extends Component {
                     <Icon name='ios-stats' size={60} color="#FB5260" /> 
                     <View style={ styles.userInfos }>
                         <Text type='h1White' style={ styles.username }>DataBank</Text>
-                        <Text style={{ fontFamily:'Montserrat-Light',}} type='h5White'>Explore.Create.Share</Text>
+                        <Text style={{ }} type='h5White'>Explore.Create.Share</Text>
                     </View>
                     
 
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     },
     menuText: {
         marginLeft: 20,
-        fontFamily:'Montserrat-Medium',
+
     },
     header: {
         marginTop: 80,
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
 
     },
     username: {
-        fontFamily:'Montserrat-SemiBold',
+
     }
 })
 
